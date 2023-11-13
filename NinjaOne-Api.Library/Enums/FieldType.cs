@@ -1,0 +1,31 @@
+﻿// ReSharper disable InconsistentNaming
+namespace NinjaOne_Api.Library.Enums;
+
+public enum FieldType
+{
+    DROPDOWN,
+    MULTI_SELECT,
+    CHECKBOX,
+    TEXT,
+    TEXT_MULTILINE,
+    TEXT_ENCRYPTED,
+    NUMERIC,
+    DECIMAL,
+    DATE,
+    DATE_TIME,
+    TIME,
+    ATTACHMENT,
+    NODE_DROPDOWN,
+    NODE_MULTI_SELECT,
+    CLIENT_DROPDOWN,
+    CLIENT_MULTISELECT,
+    CLIENT_LOCATION_DROPDOWN,
+    CLIENT_LOCATION_MULTI_SELECT,
+    CLIENT_DOCUMENT_DROPDOWN,
+    CLIENT_DOCUMENT_MULTI_SELECT,
+    EMAIL,
+    PHONE,
+    IP_ADDRESS,
+    WYSIWYG,
+    URL
+}

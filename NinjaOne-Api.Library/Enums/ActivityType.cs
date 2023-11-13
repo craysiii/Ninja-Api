@@ -1,0 +1,33 @@
+﻿// ReSharper disable InconsistentNaming
+namespace NinjaOne_Api.Library.Enums;
+
+public enum ActivityType
+{
+    ACTIONSET,
+    ACTION,
+    CONDITION,
+    CONDITION_ACTIONSET,
+    CONDITION_ACTION,
+    ANTIVIRUS,
+    PATCH_MANAGEMENT,
+    TEAMVIEWER,
+    MONITOR,
+    SYSTEM,
+    COMMENT,
+    SHADOWPROTECT,
+    IMAGEMANAGER,
+    HELP_REQUEST,
+    SOFTWARE_PATCH_MANAGEMENT,
+    SPLASHTOP,
+    CLOUDBERRY,
+    CLOUDBERRY_BACKUP,
+    SCHEDULED_TASK,
+    RDP,
+    SCRIPTING,
+    SECURITY,
+    REMOTE_TOOLS,
+    VIRTUALIZATION,
+    PSA,
+    MDM,
+    NINJA_REMOTE
+}

@@ -66,10 +66,11 @@ public partial class Client
     }
 
     // TODO: Throw exceptions when receiving non-successful HTTP status codes for Post (or return null)
+    // TODO: Refactor actual serialization and ExecuteAsync call into separate base method
     private async Task<JsonDocument> Post(RestRequest request, object payload, Method method = Method.Post)
     {
         request.Method = method;
-        request.AddJsonBody(payload);
+        request.AddBody(Serializer.SerializeObject(payload), contentType: ContentType.Json);
         var response = await _restClient.ExecuteAsync(request);
         return JsonDocument.Parse(response.Content!);
     }
@@ -77,7 +78,7 @@ public partial class Client
     private async Task<bool> PostNoResponseBody(RestRequest request, object payload, Method method = Method.Post)
     {
         request.Method = method;
-        request.AddJsonBody(payload);
+        request.AddBody(Serializer.SerializeObject(payload), contentType: ContentType.Json);
         var response = await _restClient.ExecuteAsync(request);
         return response.IsSuccessStatusCode;
     }

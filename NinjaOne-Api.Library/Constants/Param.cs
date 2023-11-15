@@ -24,4 +24,5 @@ public static class Param
     public const string TimeZone            = "tz";
     public const string Type                = "type";
     public const string User                = "user";
+    public const string WithInheritance     = "withInheritance";
 }

@@ -8,6 +8,12 @@ public static class Serializer
         {
             DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull
         };
+        
+        options.Converters.Add(new UnixTimeStampConverter());
+        options.Converters.Add(new JsonStringEnumConverter());
+        options.Converters.Add(new IPAddressConverter());
+        options.Converters.Add(new PhysicalAddressConverter());
+        
 
         return JsonSerializer.Serialize(payload, options);
     }

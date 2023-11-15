@@ -1,5 +1,6 @@
 ﻿global using RestSharp;
 global using RestSharp.Authenticators;
+global using System.Collections;
 global using System.Net;
 global using System.Net.NetworkInformation;
 global using System.Text.Json;

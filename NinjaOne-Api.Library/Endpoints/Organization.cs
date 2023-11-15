@@ -13,19 +13,15 @@ public partial class Client
     }
     
     // https://app.ninjarmm.com/apidocs-beta/core-resources/operations/getNodeCustomFields_2
-    public async Task<IDictionary<string, string?>> GetOrganizationCustomFields(int organizationId)
+    public async Task<IDictionary<string, JsonElement>> GetOrganizationCustomFields(int organizationId)
     {
         var request = new RestRequest(string.Format(Resource.OrganizationCustomFields, organizationId));
 
-        return await GetResource<IDictionary<string, string?>>(request);
+        return await GetResource<IDictionary<string, JsonElement>>(request);
     }
 
     // https://app.ninjarmm.com/apidocs-beta/core-resources/operations/updateNodeAttributeValues_1
-    public async Task<bool> UpdateOrganizationCustomFields(
-        int organizationId,
-        IDictionary<string,
-            string?> fields
-        )
+    public async Task<bool> UpdateOrganizationCustomFields(int organizationId, Hashtable fields)
     {
         var request = new RestRequest(string.Format(Resource.OrganizationCustomFields, organizationId));
 

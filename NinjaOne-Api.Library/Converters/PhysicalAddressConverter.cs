@@ -11,6 +11,6 @@ public class PhysicalAddressConverter : JsonConverter<PhysicalAddress>
 
     public override void Write(Utf8JsonWriter writer, PhysicalAddress value, JsonSerializerOptions options)
     {
-        throw new NotImplementedException();
+        writer.WriteStringValue(value.ToString());
     }
 }

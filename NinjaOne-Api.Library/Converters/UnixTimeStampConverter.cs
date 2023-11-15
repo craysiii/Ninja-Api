@@ -11,6 +11,6 @@ public class UnixTimeStampConverter : JsonConverter<DateTime>
 
     public override void Write(Utf8JsonWriter writer, DateTime value, JsonSerializerOptions options)
     {
-        throw new NotImplementedException();
+        writer.WriteStringValue(((DateTimeOffset)value.ToUniversalTime()).ToUnixTimeSeconds().ToString());
     }
 }

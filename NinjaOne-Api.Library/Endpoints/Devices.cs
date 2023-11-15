@@ -3,15 +3,15 @@
 public partial class Client
 {
     // https://app.ninjarmm.com/apidocs-beta/core-resources/operations/getNodeCustomFields
-    public async Task<IDictionary<string, string?>> GetDeviceCustomFields(int deviceId)
+    public async Task<IDictionary<string, JsonElement>> GetDeviceCustomFields(int deviceId)
     {
         var request = new RestRequest(string.Format(Resource.DeviceCustomFields, deviceId));
 
-        return await GetResource<IDictionary<string, string?>>(request);
+        return await GetResource<IDictionary<string, JsonElement>>(request);
     }
     
     // https://app.ninjarmm.com/apidocs-beta/core-resources/operations/updateNodeAttributeValues
-    public async Task<bool> UpdateDeviceCustomFields(int deviceId, IDictionary<string, string?> fields)
+    public async Task<bool> UpdateDeviceCustomFields(int deviceId, Hashtable fields)
     {
         var request = new RestRequest(string.Format(Resource.DeviceCustomFields, deviceId));
 

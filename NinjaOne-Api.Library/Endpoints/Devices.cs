@@ -11,7 +11,7 @@ public partial class Client
     }
     
     // https://app.ninjarmm.com/apidocs-beta/core-resources/operations/updateNodeAttributeValues
-    public async Task<bool> UpdateDeviceCustomFields(int deviceId, IDictionary<string, string?> fields)
+    public async Task<bool> UpdateDeviceCustomFields(int deviceId, Hashtable fields)
     {
         var request = new RestRequest(string.Format(Resource.DeviceCustomFields, deviceId));
 

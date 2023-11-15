@@ -21,11 +21,7 @@ public partial class Client
     }
 
     // https://app.ninjarmm.com/apidocs-beta/core-resources/operations/updateNodeAttributeValues_1
-    public async Task<bool> UpdateOrganizationCustomFields(
-        int organizationId,
-        IDictionary<string,
-            string?> fields
-        )
+    public async Task<bool> UpdateOrganizationCustomFields(int organizationId, Hashtable fields)
     {
         var request = new RestRequest(string.Format(Resource.OrganizationCustomFields, organizationId));
 

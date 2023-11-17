@@ -14,6 +14,7 @@ Currently the library is written to support .Net 6 and C# 10.
 * Some of the "Devices" endpoints implemented
 * All of the "Groups" endpoints implemented
 * A few of the "Management" endpoints implemented
+* All of the "Location" endpoints implemented
 
 ### Planned
 
@@ -24,7 +25,6 @@ Currently the library is written to support .Net 6 and C# 10.
 * Implement "Ticketing" endpoints
 * Implement "Webhooks" endpoints
 * Implement "Related Items" endpoints
-* Implement "Location" endpoints
 * Implement "Backup" endpoints
 * Implement logging and verbosity configuration
 * Implement proper documentation on classes and methods
@@ -40,7 +40,7 @@ using NinjaOne_Api.Library.Enums;
 var client = new Client(
     clientId: "id",
     clientSecret: "secret",
-    scopes: "monitoring offline_access",
+    scopes: ApplicationScopes.Monitoring | ApplicationScopes.Management,
     instance: Instance.US
     );
 ```

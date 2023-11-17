@@ -9,12 +9,12 @@ public class NinjaAuthenticator : AuthenticatorBase
     private readonly string _clientSecret;
     private readonly string _scopes;
     
-    public NinjaAuthenticator(string baseUrl, string clientId, string clientSecret, string scopes) : base("")
+    public NinjaAuthenticator(string baseUrl, string clientId, string clientSecret, ApplicationScopes scopes) : base("")
     {
         _baseUrl = baseUrl;
         _clientId = clientId;
         _clientSecret = clientSecret;
-        _scopes = scopes;
+        _scopes = scopes.ToString().ToLower().Replace(",", "");
     }
 
     protected override async ValueTask<Parameter> GetAuthenticationParameter(string accessToken)
@@ -40,7 +40,7 @@ public class NinjaAuthenticator : AuthenticatorBase
 
         var request = new RestRequest(Resource.Token)
             .AddParameter("grant_type", "client_credentials")
-            .AddParameter("scope", $"{_scopes} offline_access");
+            .AddParameter("scope", _scopes);
 
         var response = await client.PostAsync<TokenResponse>(request);
         return new AccessTokenInstance(response!);

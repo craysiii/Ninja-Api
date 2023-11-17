@@ -6,7 +6,7 @@ public partial class Client
     private readonly RestClient _restClient;
     private NinjaAuthenticator NinjaAuthenticator { get; }
 
-    public Client(string clientId, string clientSecret, string scopes, Instance instance = Instance.US)
+    public Client(string clientId, string clientSecret, ApplicationScopes scopes, Instance instance = Instance.US)
     {
         var instanceUrl = InstanceUrl.GetInstanceUrl(instance);
         NinjaAuthenticator = new NinjaAuthenticator(instanceUrl, clientId, clientSecret, scopes);

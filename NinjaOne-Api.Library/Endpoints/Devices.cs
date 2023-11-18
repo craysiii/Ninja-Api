@@ -59,7 +59,27 @@ public partial class Client
     }
     
     // https://app.ninjarmm.com/apidocs-beta/core-resources/operations/getDeviceInstalledSoftwarePatches
-    // TODO: Implement GetDeviceInstalledSoftwarePatches
+    public async Task<IList<SoftwarePatch>> GetDeviceInstalledSoftwarePatches(
+        int deviceId,
+        SoftwarePatchImpact? impact = null,
+        DateTime? installedAfter = null,
+        DateTime? installedBefore = null,
+        string? productIdentifier = null,
+        SoftwarePatchStatus? status = null,
+        SoftwarePatchType? type = null
+    )
+    {
+        var request = new RestRequest(string.Format(Resource.DeviceInstalledSoftwarePatches, deviceId));
+        if (impact is not null) request.AddQueryParameter(Param.Impact, impact.ToString());
+        if (installedAfter is not null) request.AddQueryParameter(Param.InstalledAfter, UnixTime(installedAfter.Value));
+        if (installedBefore is not null) request.AddQueryParameter(Param.InstalledBefore, UnixTime(installedBefore.Value));
+        if (!string.IsNullOrWhiteSpace(productIdentifier))
+            request.AddQueryParameter(Param.ProductIdentifier, productIdentifier);
+        if (status is not null) request.AddQueryParameter(Param.Status, status.ToString());
+        if (type is not null) request.AddQueryParameter(Param.Type, type.ToString());
+
+        return await GetResources<SoftwarePatch>(request);
+    }
 
     // https://app.ninjarmm.com/apidocs-beta/core-resources/operations/getDeviceNetworkInterfaces
     // TODO: Implement after Ninja fixes inconsistent serialization mentioned in DeviceNetworkInterface class

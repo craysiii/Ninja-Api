@@ -19,6 +19,7 @@ public static class Resource
     public const string DeviceSearch                        = $"{Devices}/search";
     public const string DevicePolicyOverrides               = $"{Device}/policy/overrides";
     public const string DeviceInstalledOSPatches            = $"{Device}/os-patch-installs";
+    public const string DeviceInstalledSoftwarePatches      = $"{Device}/software-patch-installs";
     public const string DeviceOSPatches                     = $"{Device}/os-patches";
     public const string DeviceSoftwareInventory             = $"{Device}/software";
     public const string DeviceSoftwarePatchStatus           = $"{Device}/software-patches";

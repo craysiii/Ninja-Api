@@ -100,7 +100,13 @@ public partial class Client
     }
     
     // https://app.ninjarmm.com/apidocs-beta/core-resources/operations/getDeviceVolumes
-    // TODO: Implement GetDeviceVolumes
+    public async Task<IList<DeviceVolume>> GetDeviceVolumes(int deviceId, string? include = null)
+    {
+        var request = new RestRequest(string.Format(Resource.DeviceVolumes, deviceId));
+        if (!string.IsNullOrWhiteSpace(include)) request.AddQueryParameter(Param.Include, include);
+
+        return await GetResources<DeviceVolume>(request);
+    }
     
     // https://app.ninjarmm.com/apidocs-beta/core-resources/operations/getDeviceProcessors
     public async Task<IList<Processor>> GetDeviceProcessors(int deviceId)

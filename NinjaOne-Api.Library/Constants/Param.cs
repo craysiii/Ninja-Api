@@ -8,6 +8,7 @@ public static class Param
     public const string Class               = "class";
     public const string DeviceFilter        = "df";
     public const string Impact              = "impact";
+    public const string Include             = "include";
     public const string InstalledAfter      = "installedAfter";
     public const string InstalledBefore     = "installedBefore";
     public const string Language            = "lang";

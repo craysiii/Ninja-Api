@@ -23,6 +23,7 @@ public static class Resource
     public const string DeviceOSPatches                     = $"{Device}/os-patches";
     public const string DeviceSoftwareInventory             = $"{Device}/software";
     public const string DeviceSoftwarePatchStatus           = $"{Device}/software-patches";
+    public const string DeviceVolumes                       = $"{Device}/volumes";
     public const string DeviceWindowsServices               = $"{Device}/windows-services";
     public const string GenerateInstaller                   = "organization/generate-installer";
     public const string Groups                              = "groups";

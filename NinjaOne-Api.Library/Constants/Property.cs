@@ -12,6 +12,7 @@ internal static class Property
     public const string Administrator                   = "administrator";
     public const string AdvancedSettings                = "advancedSettings";
     public const string ApprovalStatus                  = "approvalStatus";
+    public const string Architecture                    = "architecture";
     public const string AttributeName                   = "attributeName";
     public const string AttributeValues                 = "attributeValues";
     public const string Backup                          = "backup";
@@ -21,10 +22,12 @@ internal static class Property
     public const string ClientDocumentId                = "clientDocumentId";
     public const string ClientDocumentName              = "clientDocumentName";
     public const string ClientDocumentUpdateTime        = "clientDocumentUpdateTime";
+    public const string ClockSpeed                      = "clockSpeed";
     public const string CloudFileFolderSize             = "cloudFileFolderSize";
     public const string CloudImageSize                  = "cloudImageSize";
     public const string CloudTotalSize                  = "cloudTotalSize";
     public const string Content                         = "content";
+    public const string CoreCount                       = "numCores";
     public const string Count                           = "count";
     public const string Created                         = "created";
     public const string CreateTime                      = "createTime";
@@ -86,12 +89,14 @@ internal static class Property
     public const string Location                        = "location";
     public const string LocationId                      = "locationId";
     public const string Locations                       = "locations";
+    public const string LogicalCoreCount                = "numLogicalCores";
     public const string LogonTime                       = "logonTime";
     public const string MacAddress                      = "macAddress";
     public const string MacAddresses                    = "macAddresses";
     public const string Maintenance                     = "maintenance";
     public const string MatchAttribute                  = "matchAttr";
     public const string MatchAttributeValue             = "matchAttrValue";
+    public const string MaxClockSpeed                   = "maxClockSpeed";
     public const string Message                         = "message";
     public const string MfaConfigured                   = "mfaConfigured";
     public const string Mtu                             = "mtu";

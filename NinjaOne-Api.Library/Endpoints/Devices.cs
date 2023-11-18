@@ -77,7 +77,12 @@ public partial class Client
     // TODO: Implement GetDeviceVolumes
     
     // https://app.ninjarmm.com/apidocs-beta/core-resources/operations/getDeviceProcessors
-    // TODO: Implement GetDeviceProcessors
+    public async Task<IList<Processor>> GetDeviceProcessors(int deviceId)
+    {
+        var request = new RestRequest(string.Format(Resource.DeviceProcessors, deviceId));
+
+        return await GetResources<Processor>(request);
+    }
 
     // https://app.ninjarmm.com/apidocs-beta/core-resources/operations/getDeviceSoftware
     public async Task<IList<SoftwareInstallation>> GetDeviceSoftwareInventory(int deviceId)

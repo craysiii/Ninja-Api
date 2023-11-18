@@ -83,13 +83,12 @@ public partial class Client
     }
 
     // https://app.ninjarmm.com/apidocs-beta/core-resources/operations/getDeviceNetworkInterfaces
-    // TODO: Implement after Ninja fixes inconsistent serialization mentioned in DeviceNetworkInterface class
-    // public async Task<IList<DeviceNetworkInterface>> GetDeviceNetworkInterfaces(int deviceId)
-    // {
-    //     var request = new RestRequest(string.Format("device/{0}/network-interfaces", deviceId));
-    //
-    //     return await GetResources<DeviceNetworkInterface>(request);
-    // }
+    public async Task<IList<DeviceNetworkInterface>> GetDeviceNetworkInterfaces(int deviceId)
+    {
+        var request = new RestRequest(string.Format(Resource.DeviceNetworkInterfaces, deviceId));
+    
+        return await GetResources<DeviceNetworkInterface>(request);
+    }
     
     // https://app.ninjarmm.com/apidocs-beta/core-resources/operations/getDeviceDiskDrives
     public async Task<IList<DiskDrive>> GetDeviceDiskDrives(int deviceId)

@@ -174,10 +174,21 @@ public partial class Client
     }
 
     // https://app.ninjarmm.com/apidocs-beta/core-resources/operations/getDevicePendingFailedRejectedSoftwarePatches
-    public async Task<IList<SoftwarePatchStatus>> GetDeviceSoftwarePatchStatus(int deviceId)
+    public async Task<IList<SoftwarePatch>> GetDeviceSoftwarePatchStatus(
+        int deviceId,
+        SoftwarePatchImpact? impact = null,
+        string? productIdentifier = null,
+        SoftwarePatchStatus? status = null,
+        SoftwarePatchType? type = null
+        )
     {
         var request = new RestRequest(string.Format(Resource.DeviceSoftwarePatchStatus, deviceId));
+        if (impact is not null) request.AddQueryParameter(Param.Impact, impact.ToString());
+        if (!string.IsNullOrWhiteSpace(productIdentifier))
+            request.AddQueryParameter(Param.ProductIdentifier, productIdentifier);
+        if (status is not null) request.AddQueryParameter(Param.Status, status.ToString());
+        if (type is not null) request.AddQueryParameter(Param.Type, type.ToString());
 
-        return await GetResources<SoftwarePatchStatus>(request);
+        return await GetResources<SoftwarePatch>(request);
     }
 }

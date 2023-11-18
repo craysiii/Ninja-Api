@@ -24,6 +24,8 @@ public class Activity
     public ActivityResult? ActivityResult { get; set; }
     [JsonPropertyName(Property.SourceConfigUid)]
     public Guid? SourceConfigUid { get; set; }
+    [JsonPropertyName(Property.SourceName)]
+    public string? SourceName { get; set; }
     [JsonPropertyName(Property.Subject)]
     public string? Subject { get; set; }
     [JsonPropertyName(Property.UserId)]

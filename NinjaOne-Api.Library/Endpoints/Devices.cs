@@ -116,7 +116,30 @@ public partial class Client
     }
     
     // https://app.ninjarmm.com/apidocs-beta/core-resources/operations/getDeviceActivities
-    // TODO: Implement GetDeviceActivities
+    public async Task<DeviceActivityResult> GetDeviceActivities(
+        int deviceId,
+        ActivityType? activityType = null,
+        string? lang = null,
+        int? newerThan = null,
+        int? olderThan = null,
+        int pageSize = DefaultMaxPageSize,
+        Guid? seriesUid = null,
+        StatusCode? status = null,
+        string? timeZone = null
+        )
+    {
+        var request = new RestRequest(string.Format(Resource.DeviceActivities, deviceId));
+        if (activityType is not null) request.AddQueryParameter(Param.ActivityType, activityType.ToString());
+        if (!string.IsNullOrWhiteSpace(lang)) request.AddQueryParameter(Param.Language, lang);
+        if (newerThan is not null) request.AddQueryParameter(Param.NewerThan, newerThan.Value);
+        if (olderThan is not null) request.AddQueryParameter(Param.OlderThan, olderThan.Value);
+        request.AddQueryParameter(Param.PageSize, pageSize);
+        if (seriesUid is not null) request.AddQueryParameter(Param.SeriesUid, seriesUid.ToString());
+        if (status is not null) request.AddQueryParameter(Param.Status, status.ToString());
+        if (timeZone is not null) request.AddQueryParameter(Param.TimeZone, timeZone);
+
+        return await GetResource<DeviceActivityResult>(request);
+    }
 
     // https://app.ninjarmm.com/apidocs-beta/core-resources/operations/getDevice
     public async Task<Device> GetDevice(int deviceId)

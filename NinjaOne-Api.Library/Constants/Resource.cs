@@ -7,6 +7,7 @@ public static class Resource
     public const string CustomFieldDefinitions              = "device-custom-fields";
     public const string DetailedCustomFieldReport           = "queries/custom-fields-detailed";
     public const string Device                              = "/device/{0}";
+    public const string DeviceActivities                    = $"{Device}/activities";
     public const string DeviceCustomFields                  = $"{Device}/custom-fields";
     public const string DeviceLastLoggedOnUser              = $"{Device}/last-logged-on-user";
     public const string Devices                             = "devices";

@@ -2,6 +2,7 @@
 
 public static class Param
 {
+    public const string ActivityType        = "activityType";
     public const string After               = "after";
     public const string Before              = "before";
     public const string Class               = "class";

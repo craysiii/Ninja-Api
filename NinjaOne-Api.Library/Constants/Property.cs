@@ -76,6 +76,7 @@ internal static class Property
     public const string LastContact                     = "lastContact";
     public const string LastEvaluated                   = "lastEvaluated";
     public const string LastName                        = "lastName";
+    public const string LastNodeActivityId              = "lastNodeActivityId";
     public const string LastRun                         = "lastRun";
     public const string LastUpdate                      = "lastUpdate";
     public const string LinkSpeed                       = "linkSpeed";

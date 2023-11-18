@@ -3,10 +3,11 @@
 public partial class Client
 {
     // https://app.ninjarmm.com/apidocs-beta/core-resources/operations/getNodeCustomFields
-    public async Task<IDictionary<string, JsonElement>> GetDeviceCustomFields(int deviceId)
+    public async Task<IDictionary<string, JsonElement>> GetDeviceCustomFields(int deviceId, bool? withInheritance = null)
     {
         var request = new RestRequest(string.Format(Resource.DeviceCustomFields, deviceId));
-
+        if (withInheritance is not null) request.AddQueryParameter(Param.WithInheritance, withInheritance.Value);
+        
         return await GetResource<IDictionary<string, JsonElement>>(request);
     }
     

@@ -98,7 +98,14 @@ public partial class Client
     }
     
     // https://app.ninjarmm.com/apidocs-beta/core-resources/operations/getDeviceAlerts
-    // TODO: Implement GetDeviceAlerts
+    public async Task<IList<Alert>> GetDeviceAlerts(int deviceId, string? lang = null, string? timeZone = null)
+    {
+        var request = new RestRequest(string.Format(Resource.DeviceAlerts, deviceId));
+        if (lang is not null) request.AddQueryParameter(Param.Language, lang);
+        if (timeZone is not null) request.AddQueryParameter(Param.TimeZone, timeZone);
+
+        return await GetResources<Alert>(request);
+    }
     
     // https://app.ninjarmm.com/apidocs-beta/core-resources/operations/getDeviceActiveJobs
     // TODO: Implement GetDeviceActiveJobs

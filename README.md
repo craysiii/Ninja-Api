@@ -11,7 +11,7 @@ Currently the library is written to support .Net 6 and C# 10.
 * Client Credentials Flow Authentication
 * All of the "System" endpoints implemented
 * All of the "Organization" endpoints implemented
-* Some of the "Devices" endpoints implemented
+* All of the "Devices" endpoints implemented
 * All of the "Groups" endpoints implemented
 * A few of the "Management" endpoints implemented
 * All of the "Location" endpoints implemented
@@ -19,7 +19,6 @@ Currently the library is written to support .Net 6 and C# 10.
 ### Planned
 
 * Implement other Authentication Flows
-* Implement remaining "Devices" endpoints
 * Implement remaining "Management" endpoints
 * Implement "Queries" endpoints
 * Implement "Ticketing" endpoints

@@ -13,7 +13,7 @@ public class Job
     [JsonPropertyName(Property.UpdateTime)]
     public DateTime UpdateTime { get; set; }
     [JsonPropertyName(Property.SourceType)]
-    public SourceType SourceType { get; set; }
+    public SourceType? SourceType { get; set; }
     [JsonPropertyName(Property.SourceConfigUid)]
     public Guid SourceConfigUid { get; set; }
     [JsonPropertyName(Property.SourceName)]

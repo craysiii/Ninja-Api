@@ -1,6 +1,6 @@
 ﻿namespace NinjaOne_Api.Library.Types;
 
-public class SoftwarePatchStatus
+public class SoftwarePatch
 {
     [JsonPropertyName(Property.Id)]
     public Guid? Id { get; set; }
@@ -9,7 +9,7 @@ public class SoftwarePatchStatus
     [JsonPropertyName(Property.Title)]
     public string? Title { get; set; }
     [JsonPropertyName(Property.Impact)]
-    public string? Impact { get; set; }
+    public SoftwarePatchImpact? Impact { get; set; }
     [JsonPropertyName(Property.Status)]
     public string? Status { get; set; }
     [JsonPropertyName(Property.Type)]

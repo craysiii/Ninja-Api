@@ -2,10 +2,13 @@
 
 public static class Param
 {
+    public const string ActivityType        = "activityType";
     public const string After               = "after";
     public const string Before              = "before";
     public const string Class               = "class";
     public const string DeviceFilter        = "df";
+    public const string Impact              = "impact";
+    public const string Include             = "include";
     public const string InstalledAfter      = "installedAfter";
     public const string InstalledBefore     = "installedBefore";
     public const string Language            = "lang";
@@ -14,6 +17,7 @@ public static class Param
     public const string NewerThan           = "newerThan";
     public const string OlderThan           = "olderThan";
     public const string PageSize            = "pageSize";
+    public const string ProductIdentifier   = "productIdentifier";
     public const string Query               = "q";
     public const string SeriesUid           = "seriesUid";
     public const string Severity            = "severity";

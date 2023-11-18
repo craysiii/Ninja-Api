@@ -9,6 +9,7 @@ public static class Resource
     public const string Device                              = "/device/{0}";
     public const string DeviceActivities                    = $"{Device}/activities";
     public const string DeviceCustomFields                  = $"{Device}/custom-fields";
+    public const string DeviceDiskDrives                    = $"{Device}/disks";
     public const string DeviceLastLoggedOnUser              = $"{Device}/last-logged-on-user";
     public const string DeviceProcessors                    = $"{Device}/processors";
     public const string Devices                             = "devices";

@@ -71,7 +71,12 @@ public partial class Client
     // }
     
     // https://app.ninjarmm.com/apidocs-beta/core-resources/operations/getDeviceDiskDrives
-    // TODO: Implement GetDeviceDiskDrives
+    public async Task<IList<DiskDrive>> GetDeviceDiskDrives(int deviceId)
+    {
+        var request = new RestRequest(string.Format(Resource.DeviceDiskDrives, deviceId));
+
+        return await GetResources<DiskDrive>(request);
+    }
     
     // https://app.ninjarmm.com/apidocs-beta/core-resources/operations/getDeviceVolumes
     // TODO: Implement GetDeviceVolumes

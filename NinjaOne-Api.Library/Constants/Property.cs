@@ -17,6 +17,7 @@ internal static class Property
     public const string AttributeValues                 = "attributeValues";
     public const string Backup                          = "backup";
     public const string BackupUsage                     = "backupUsage";
+    public const string BytesPerSector                  = "bytesPerSector";
     public const string ChassisType                     = "chassisType";
     public const string ClientDocumentDescription       = "clientDocumentDescription";
     public const string ClientDocumentId                = "clientDocumentId";
@@ -94,11 +95,14 @@ internal static class Property
     public const string MacAddress                      = "macAddress";
     public const string MacAddresses                    = "macAddresses";
     public const string Maintenance                     = "maintenance";
+    public const string Manufacturer                    = "manufacturer";
     public const string MatchAttribute                  = "matchAttr";
     public const string MatchAttributeValue             = "matchAttrValue";
     public const string MaxClockSpeed                   = "maxClockSpeed";
+    public const string MediaType                       = "mediaType";
     public const string Message                         = "message";
     public const string MfaConfigured                   = "mfaConfigured";
+    public const string Model                           = "model";
     public const string Mtu                             = "mtu";
     public const string MustChangePassword              = "mustChangePw";
     public const string Name                            = "name";
@@ -117,6 +121,7 @@ internal static class Property
     public const string Overrides                       = "overrides";
     public const string ParentDeviceId                  = "parentDeviceId";
     public const string ParentPolicyId                  = "parentPolicyId";
+    public const string PartitionCount                  = "partitionCount";
     public const string PermitAllClients                = "permitAllClients";
     public const string PhoneNumber                     = "phone";
     public const string Policies                        = "policies";
@@ -145,11 +150,13 @@ internal static class Property
     public const string Scope                           = "scope";
     public const string Score                           = "score";
     public const string ScriptPermission                = "scriptPermission";
+    public const string SerialNumber                    = "serialNumber";
     public const string SeriesUid                       = "seriesId";
     public const string Settings                        = "settings";
     public const string Severity                        = "severity";
     public const string Shared                          = "shared";
     public const string Size                            = "size";
+    public const string SmartCapable                    = "smartCapable";
     public const string Source                          = "source";
     public const string SourceConfigUid                 = "sourceConfigUid";
     public const string SourceName                      = "sourceName";

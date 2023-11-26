@@ -44,6 +44,7 @@ public static class Resource
     public const string Organizations                       = "organizations";
     public const string OrganizationsDetailed               = "organizations-detailed";
     public const string Policies                            = "policies";
+    public const string QueriesNetworkInterface             = "queries/network-interfaces";
     public const string Roles                               = "roles";
     public const string SoftwareProducts                    = "software-products";
     public const string Tasks                               = "tasks";

@@ -6,6 +6,7 @@ public static class Param
     public const string After               = "after";
     public const string Before              = "before";
     public const string Class               = "class";
+    public const string Cursor              = "cursor";
     public const string DeviceFilter        = "df";
     public const string Impact              = "impact";
     public const string Include             = "include";

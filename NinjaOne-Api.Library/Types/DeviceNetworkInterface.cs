@@ -29,4 +29,6 @@ public class DeviceNetworkInterface
     public string? Status { get; set; }
     [JsonPropertyName(Property.SubnetMask)]
     public IPAddress? SubnetMask { get; set; }
+    [JsonPropertyName(Property.DeviceId)]
+    public int? DeviceId { get; set; }
 }

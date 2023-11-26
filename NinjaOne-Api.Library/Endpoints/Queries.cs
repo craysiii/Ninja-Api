@@ -3,7 +3,19 @@
 public partial class Client
 {
     // https://app.ninjarmm.com/apidocs-beta/core-resources/operations/getNetworkInterfaces
-    // TODO: Implement GetNetworkInterfaces
+    public async Task<NetworkInterfaceQuery> QueryNetworkInterfaces(
+        string? cursor = null,
+        string? deviceFilter = null,
+        int pageSize = DefaultMaxPageSize
+        )
+    {
+        var request = new RestRequest(Resource.QueriesNetworkInterface);
+        if (!string.IsNullOrWhiteSpace(cursor)) request.AddQueryParameter(Param.Cursor, cursor);
+        if (!string.IsNullOrWhiteSpace(deviceFilter)) request.AddQueryParameter(Param.DeviceFilter, deviceFilter);
+        request.AddQueryParameter(Param.PageSize, pageSize);
+
+        return await GetResource<NetworkInterfaceQuery>(request);
+    }
     
     // https://app.ninjarmm.com/apidocs-beta/core-resources/operations/getPendingFailedRejectedOSPatches
     // TODO: Implement GetOSPatches

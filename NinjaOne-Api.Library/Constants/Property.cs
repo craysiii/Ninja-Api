@@ -37,6 +37,7 @@ internal static class Property
     public const string Count                           = "count";
     public const string Created                         = "created";
     public const string CreateTime                      = "createTime";
+    public const string Cursor                          = "cursor";
     public const string Custom                          = "custom";
     public const string CustomizeForEndUser             = "customizeForEndUser";
     public const string Data                            = "data";
@@ -149,6 +150,7 @@ internal static class Property
     public const string PsaTicketId                     = "psaTicketId";
     public const string PublicIP                        = "publicIP";
     public const string References                      = "references";
+    public const string Results                         = "results";
     public const string Query                           = "query";
     public const string Required                        = "required";
     public const string RevisionsCurrentSize            = "revisionsCurrentSize";

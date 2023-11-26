@@ -26,6 +26,7 @@ public static class Param
     public const string SourceType          = "sourceType";
     public const string State               = "state";
     public const string Status              = "status";
+    public const string Timestamp           = "ts";
     public const string TimeZone            = "tz";
     public const string Type                = "type";
     public const string User                = "user";

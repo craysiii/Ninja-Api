@@ -191,6 +191,7 @@ internal static class Property
     public const string TechnicianPermission            = "technicianPermission";
     public const string Text                            = "text";
     public const string TicketTemplateId                = "ticketTemplateId";
+    public const string Timestamp                       = "timestamp";
     public const string Title                           = "title";
     public const string ToolTipText                     = "tooltipText";
     public const string TrayIcon                        = "trayicon";

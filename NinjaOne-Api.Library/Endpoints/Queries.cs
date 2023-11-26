@@ -18,7 +18,27 @@ public partial class Client
     }
     
     // https://app.ninjarmm.com/apidocs-beta/core-resources/operations/getPendingFailedRejectedOSPatches
-    // TODO: Implement GetOSPatches
+    public async Task<OSPatchQuery> QueryOSPatches(
+        string? cursor = null,
+        string? deviceFilter = null,
+        int pageSize = DefaultMaxPageSize,
+        OSPatchSeverity? severity = null,
+        OSPatchStatus? status = null,
+        string? timestamp = null,
+        OSPatchType? type = null
+        )
+    {
+        var request = new RestRequest(Resource.QueriesOSPatch);
+        if (!string.IsNullOrWhiteSpace(cursor)) request.AddQueryParameter(Param.Cursor, cursor);
+        if (!string.IsNullOrWhiteSpace(deviceFilter)) request.AddQueryParameter(Param.DeviceFilter, deviceFilter);
+        request.AddQueryParameter(Param.PageSize, pageSize);
+        if (severity is not null) request.AddQueryParameter(Param.Severity, severity.ToString());
+        if (status is not null) request.AddQueryParameter(Param.Status, status.ToString());
+        if (!string.IsNullOrWhiteSpace(timestamp)) request.AddQueryParameter(Param.Timestamp, timestamp);
+        if (type is not null) request.AddQueryParameter(Param.Type, type.ToString());
+
+        return await GetResource<OSPatchQuery>(request);
+    }
     
     // https://app.ninjarmm.com/apidocs-beta/core-resources/operations/getPendingFailedRejectedSoftwarePatches
     // TODO: Implement GetSoftwarePatches

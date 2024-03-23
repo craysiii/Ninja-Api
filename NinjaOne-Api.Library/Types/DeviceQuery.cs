@@ -5,5 +5,5 @@ public class DeviceQuery
     [JsonPropertyName(Property.Query)]
     public string? Query { get; set; }
     [JsonPropertyName(Property.Devices)]
-    public IList<DeviceQueryResult>? Devices { get; set; }
+    public List<DeviceQueryResult>? Devices { get; set; }
 }

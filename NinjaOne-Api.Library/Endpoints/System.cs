@@ -3,7 +3,10 @@
 public partial class Client
 {
     // https://app.ninjarmm.com/apidocs-beta/core-resources/operations/getOrganizations
-    public async Task<IList<OrganizationBase>> GetOrganizations(int after = 0, int pageSize = DefaultMaxPageSize)
+    public async Task<(List<OrganizationBase>? Organizations, NinjaApiError? Error)> GetOrganizations(
+        int after = 0, 
+        int pageSize = DefaultMaxPageSize
+        )
     {
         var request = new RestRequest(Resource.Organizations);
         request.AddQueryParameter(Param.After, after);
@@ -13,7 +16,7 @@ public partial class Client
     }
     
     // https://app.ninjarmm.com/apidocs-beta/core-resources/operations/search
-    public async Task<DeviceQuery> QueryDevices(string query, int limit = int.MaxValue)
+    public async Task<(DeviceQuery? Devices, NinjaApiError? Error)> QueryDevices(string query, int limit = int.MaxValue)
     {
         var request = new RestRequest(Resource.DeviceSearch);
         request.AddQueryParameter(Param.Query, query);
@@ -23,7 +26,7 @@ public partial class Client
     }
 
     // https://app.ninjarmm.com/apidocs-beta/core-resources/operations/getDeviceGlobalCustomFields
-    public async Task<IList<DeviceCustomField>> GetGlobalDeviceCustomFields()
+    public async Task<(List<DeviceCustomField>? CustomFields, NinjaApiError? Error)> GetGlobalDeviceCustomFields()
     {
         var request = new RestRequest(Resource.CustomFieldDefinitions);
         
@@ -31,7 +34,7 @@ public partial class Client
     }
     
     // https://app.ninjarmm.com/apidocs-beta/core-resources/operations/getPolicies
-    public async Task<IList<Policy>> GetPolicies()
+    public async Task<(List<Policy>? Policies, NinjaApiError? Error)> GetPolicies()
     {
         var request = new RestRequest(Resource.Policies);
         
@@ -39,7 +42,7 @@ public partial class Client
     }
     
     // https://app.ninjarmm.com/apidocs-beta/core-resources/operations/getAlerts
-    public async Task<IList<Alert>> GetAlerts(
+    public async Task<(List<Alert>? Alerts, NinjaApiError? Error)> GetAlerts(
         string? deviceFilter = null,
         string? language = null,
         SourceType? sourceType = null,
@@ -56,7 +59,10 @@ public partial class Client
     }
 
     // https://app.ninjarmm.com/apidocs-beta/core-resources/operations/getOrganizationsDetailed
-    public async Task<IList<Organization>> GetOrganizationsDetailed(int after = 0, int pageSize = DefaultMaxPageSize)
+    public async Task<(List<Organization>? Organizations, NinjaApiError? Error)> GetOrganizationsDetailed(
+        int after = 0, 
+        int pageSize = DefaultMaxPageSize
+        )
     {
         var request = new RestRequest(Resource.OrganizationsDetailed);
         request.AddQueryParameter(Param.After, after);
@@ -66,7 +72,7 @@ public partial class Client
     }
     
     // https://app.ninjarmm.com/apidocs-beta/core-resources/operations/getNodeRoles
-    public async Task<IList<DeviceRole>> GetDeviceRoles()
+    public async Task<(List<DeviceRole>? DeviceRoles, NinjaApiError? Error)> GetDeviceRoles()
     {
         var request = new RestRequest(Resource.Roles);
         
@@ -74,7 +80,7 @@ public partial class Client
     }
 
     // https://app.ninjarmm.com/apidocs-beta/core-resources/operations/getSoftwareProducts
-    public async Task<IList<SoftwareProduct>> GetSoftwareProducts()
+    public async Task<(List<SoftwareProduct>? SoftwareProducts, NinjaApiError? Error)> GetSoftwareProducts()
     {
         var request = new RestRequest(Resource.SoftwareProducts);
         
@@ -82,7 +88,7 @@ public partial class Client
     }
 
     // https://app.ninjarmm.com/apidocs-beta/core-resources/operations/getDevicesDetailed
-    public async Task<IList<Device>> GetDevicesDetailed(
+    public async Task<(List<Device>? Devices, NinjaApiError? Error)> GetDevicesDetailed(
         string? deviceFilter = null,
         int after = 0,
         int pageSize = DefaultMaxPageSize
@@ -97,7 +103,7 @@ public partial class Client
     }
     
     // https://app.ninjarmm.com/apidocs-beta/core-resources/operations/getActiveJobs
-    public async Task<IList<Job>> GetActiveJobs(
+    public async Task<(List<Job>? Jobs, NinjaApiError? Error)> GetActiveJobs(
         string? deviceFilter = null,
         string? language = null,
         SourceType? sourceType = null,
@@ -114,7 +120,7 @@ public partial class Client
     }
     
     // https://app.ninjarmm.com/apidocs-beta/core-resources/operations/getScheduledTasks
-    public async Task<IList<ScheduledTask>> GetScheduledTasks()
+    public async Task<(List<ScheduledTask>? ScheduledTasks, NinjaApiError? Error)> GetScheduledTasks()
     {
         var request = new RestRequest(Resource.Tasks);
         
@@ -122,7 +128,7 @@ public partial class Client
     }
     
     // https://app.ninjarmm.com/apidocs-beta/core-resources/operations/getUsers
-    public async Task<IList<User>> GetUsers()
+    public async Task<(List<User>? Users, NinjaApiError? Error)> GetUsers()
     {
         var request = new RestRequest(Resource.Users);
         
@@ -130,7 +136,7 @@ public partial class Client
     }
     
     // https://app.ninjarmm.com/apidocs-beta/core-resources/operations/getGroups
-    public async Task<IList<Group>> GetGroups()
+    public async Task<(List<Group>? Groups, NinjaApiError? Error)> GetGroups()
     {
         var request = new RestRequest(Resource.Groups);
         
@@ -138,7 +144,7 @@ public partial class Client
     }
     
     // https://app.ninjarmm.com/apidocs-beta/core-resources/operations/getDevices
-    public async Task<IList<DeviceBase>> GetDevices(
+    public async Task<(List<DeviceBase>? Devices, NinjaApiError? Error)> GetDevices(
         string? deviceFilter = null,
         int after = 0,
         int pageSize = DefaultMaxPageSize
@@ -153,7 +159,7 @@ public partial class Client
     }
     
     // https://app.ninjarmm.com/apidocs-beta/core-resources/operations/getActivities
-    public async Task<ActivityQueryResult> GetActivities(
+    public async Task<(ActivityQueryResult? ActivityQueryResult, NinjaApiError? Error)> GetActivities(
         DateTime? after = null,
         DateTime? before = null,
         ActivityClass? activityClass = null,
@@ -190,7 +196,10 @@ public partial class Client
     }
     
     // https://app.ninjarmm.com/apidocs-beta/core-resources/operations/getLocations
-    public async Task<IList<Location>> GetLocations(int after = 0, int pageSize = DefaultMaxPageSize)
+    public async Task<(List<Location>? Locations, NinjaApiError? Error)> GetLocations(
+        int after = 0, 
+        int pageSize = DefaultMaxPageSize
+        )
     {
         var request = new RestRequest(Resource.Locations);
         request.AddQueryParameter(Param.After, after);

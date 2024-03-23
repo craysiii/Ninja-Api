@@ -7,7 +7,7 @@ public class OrganizationProductSetting
     [JsonPropertyName(Property.Enabled)]
     public bool? Enabled { get; set; }
     [JsonPropertyName(Property.Targets)]
-    public IList<string>? Targets { get; set; }
+    public List<string>? Targets { get; set; }
     [JsonPropertyName(Property.Options)]
     public JsonElement? Options { get; set; }
 }

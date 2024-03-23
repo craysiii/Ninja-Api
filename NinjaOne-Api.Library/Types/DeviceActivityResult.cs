@@ -7,5 +7,5 @@ public class DeviceActivityResult
     [JsonPropertyName(Property.LastNodeActivityId)]
     public long LastNodeActivityId { get; set; }
     [JsonPropertyName(Property.Activities)]
-    public IList<Activity>? Activities { get; set; }
+    public List<Activity>? Activities { get; set; }
 }

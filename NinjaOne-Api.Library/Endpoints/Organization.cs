@@ -1,11 +1,9 @@
-﻿using System.Text.Json.Nodes;
-
-namespace NinjaOne_Api.Library;
+﻿namespace NinjaOne_Api.Library;
 
 public partial class Client
 {
     // https://app.ninjarmm.com/apidocs-beta/core-resources/operations/getOrganization
-    public async Task<Organization> GetOrganization(int organizationId)
+    public async Task<(Organization? Organization, NinjaApiError? Error)> GetOrganization(int organizationId)
     {
         var request = new RestRequest(string.Format(Resource.Organization, organizationId));
 
@@ -13,15 +11,21 @@ public partial class Client
     }
     
     // https://app.ninjarmm.com/apidocs-beta/core-resources/operations/getNodeCustomFields_2
-    public async Task<IDictionary<string, JsonElement>> GetOrganizationCustomFields(int organizationId)
+    public async Task<(Dictionary<string, JsonElement>? CustomFields, NinjaApiError? Error)> 
+        GetOrganizationCustomFields(
+            int organizationId
+            )
     {
         var request = new RestRequest(string.Format(Resource.OrganizationCustomFields, organizationId));
 
-        return await GetResource<IDictionary<string, JsonElement>>(request);
+        return await GetResource<Dictionary<string, JsonElement>>(request);
     }
 
     // https://app.ninjarmm.com/apidocs-beta/core-resources/operations/updateNodeAttributeValues_1
-    public async Task<bool> UpdateOrganizationCustomFields(int organizationId, Hashtable fields)
+    public async Task<(bool Success, NinjaApiError? Error)> UpdateOrganizationCustomFields(
+        int organizationId, 
+        Hashtable fields
+        )
     {
         var request = new RestRequest(string.Format(Resource.OrganizationCustomFields, organizationId));
 
@@ -29,7 +33,10 @@ public partial class Client
     }
 
     // https://app.ninjarmm.com/apidocs-beta/core-resources/operations/getOrganizationLocationUsage
-    public async Task<IList<LocationBackupUsage>> GetOrganizationLocationBackupUsages(int organizationId)
+    public async Task<(List<LocationBackupUsage>? LocationBackupUsages, NinjaApiError? Error)>
+        GetOrganizationLocationBackupUsages(
+            int organizationId
+            )
     {
         var request = new RestRequest(string.Format(Resource.OrganizationLocationBackups, organizationId));
 
@@ -37,7 +44,7 @@ public partial class Client
     }
 
     // https://app.ninjarmm.com/apidocs-beta/core-resources/operations/getOrganizationLocations
-    public async Task<IList<Location>> GetOrganizationLocations(int organizationId)
+    public async Task<(List<Location>? Locations, NinjaApiError? Error)> GetOrganizationLocations(int organizationId)
     {
         var request = new RestRequest(string.Format(Resource.OrganizationLocations, organizationId));
 
@@ -45,7 +52,7 @@ public partial class Client
     }
 
     // https://app.ninjarmm.com/apidocs-beta/core-resources/operations/updateOrganizationDocument
-    public async Task<OrganizationDocument> UpdateOrganizationDocument(
+    public async Task<(OrganizationDocument?, NinjaApiError?)> UpdateOrganizationDocument(
         int organizationId,
         int documentId,
         DocumentUpdate documentUpdate
@@ -57,15 +64,24 @@ public partial class Client
     }
 
     // https://app.ninjarmm.com/apidocs-beta/core-resources/operations/getLocationUsage
-    public async Task<LocationBackupUsage> GetOrganizationLocationBackupUsage(int organizationId, int locationId)
+    public async Task<(LocationBackupUsage? LocationBackupUsage, NinjaApiError? Error)> 
+        GetOrganizationLocationBackupUsage(
+            int organizationId, 
+            int locationId
+            )
     {
-        var request = new RestRequest(string.Format(Resource.OrganizationLocationBackup, organizationId, locationId));
+        var request = new RestRequest(
+            string.Format(Resource.OrganizationLocationBackup, organizationId, locationId)
+            );
 
         return await GetResource<LocationBackupUsage>(request);
     }
 
     // https://app.ninjarmm.com/apidocs-beta/core-resources/operations/getOrganizationDocuments
-    public async Task<IList<OrganizationDocument>> GetOrganizationDocuments(int organizationId)
+    public async Task<(List<OrganizationDocument>? OrganizationDocuments, NinjaApiError? Error)> 
+        GetOrganizationDocuments(
+            int organizationId
+            )
     {
         var request = new RestRequest(string.Format(Resource.OrganizationDocuments, organizationId));
 
@@ -73,7 +89,7 @@ public partial class Client
     }
     
     // https://app.ninjarmm.com/apidocs-beta/core-resources/operations/getOrganizationDevices
-    public async Task<IList<DeviceBase>> GetOrganizationDevices(int organizationId)
+    public async Task<(List<DeviceBase>? Devices, NinjaApiError? Error)> GetOrganizationDevices(int organizationId)
     {
         var request = new RestRequest(string.Format(Resource.OrganizationDevices, organizationId));
 
@@ -81,7 +97,7 @@ public partial class Client
     }
 
     // https://app.ninjarmm.com/apidocs-beta/core-resources/operations/getEndUsers
-    public async Task<IList<User>> GetOrganizationEndUsers(int organizationId)
+    public async Task<(List<User>? EndUsers, NinjaApiError? Error)> GetOrganizationEndUsers(int organizationId)
     {
         var request = new RestRequest(string.Format(Resource.OrganizationUsers, organizationId));
 

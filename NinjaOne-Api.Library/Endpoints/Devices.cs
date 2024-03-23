@@ -3,16 +3,19 @@
 public partial class Client
 {
     // https://app.ninjarmm.com/apidocs-beta/core-resources/operations/getNodeCustomFields
-    public async Task<IDictionary<string, JsonElement>> GetDeviceCustomFields(int deviceId, bool? withInheritance = null)
+    public async Task<(Dictionary<string, JsonElement>? CustomFields, NinjaApiError? Error)> GetDeviceCustomFields(
+        int deviceId, 
+        bool? withInheritance = null
+        )
     {
         var request = new RestRequest(string.Format(Resource.DeviceCustomFields, deviceId));
         if (withInheritance is not null) request.AddQueryParameter(Param.WithInheritance, withInheritance.Value);
         
-        return await GetResource<IDictionary<string, JsonElement>>(request);
+        return await GetResource<Dictionary<string, JsonElement>>(request);
     }
     
     // https://app.ninjarmm.com/apidocs-beta/core-resources/operations/updateNodeAttributeValues
-    public async Task<bool> UpdateDeviceCustomFields(int deviceId, Hashtable fields)
+    public async Task<(bool Success, NinjaApiError? Error)> UpdateDeviceCustomFields(int deviceId, Hashtable fields)
     {
         var request = new RestRequest(string.Format(Resource.DeviceCustomFields, deviceId));
 
@@ -20,7 +23,7 @@ public partial class Client
     }
 
     // https://app.ninjarmm.com/apidocs-beta/core-resources/operations/getDeviceLastLoggedOnUser
-    public async Task<LoggedOnUser> GetDeviceLastLoggedOnUser(int deviceId)
+    public async Task<(LoggedOnUser? LoggedOnUser, NinjaApiError? Error)> GetDeviceLastLoggedOnUser(int deviceId)
     {
         var request = new RestRequest(string.Format(Resource.DeviceLastLoggedOnUser, deviceId));
 
@@ -28,7 +31,7 @@ public partial class Client
     }
 
     // https://app.ninjarmm.com/apidocs-beta/core-resources/operations/getDevicePendingFailedRejectedOSPatches
-    public async Task<IList<OSPatch>> GetDeviceOSPatches(
+    public async Task<(List<OSPatch>? OSPatches, NinjaApiError? Error)> GetDeviceOSPatches(
         int deviceId,
         OSPatchSeverity? severity = null,
         OSPatchStatus? status = null,
@@ -44,7 +47,7 @@ public partial class Client
     }
 
     // https://app.ninjarmm.com/apidocs-beta/core-resources/operations/getDeviceInstalledOSPatches
-    public async Task<IList<OSPatchInstall>> GetDeviceInstalledOSPatches(
+    public async Task<(List<OSPatchInstall>? OSPatchInstalls, NinjaApiError? Error)> GetDeviceInstalledOSPatches(
         int deviceId,
         DateTime? installedAfter = null,
         DateTime? installedBefore = null,
@@ -60,7 +63,7 @@ public partial class Client
     }
     
     // https://app.ninjarmm.com/apidocs-beta/core-resources/operations/getDeviceInstalledSoftwarePatches
-    public async Task<IList<SoftwarePatch>> GetDeviceInstalledSoftwarePatches(
+    public async Task<(List<SoftwarePatch>? SoftwarePatches, NinjaApiError? Error)> GetDeviceInstalledSoftwarePatches(
         int deviceId,
         SoftwarePatchImpact? impact = null,
         DateTime? installedAfter = null,
@@ -83,7 +86,10 @@ public partial class Client
     }
 
     // https://app.ninjarmm.com/apidocs-beta/core-resources/operations/getDeviceNetworkInterfaces
-    public async Task<IList<DeviceNetworkInterface>> GetDeviceNetworkInterfaces(int deviceId)
+    public async Task<(List<DeviceNetworkInterface>? DeviceNetworkInterfaces, NinjaApiError? Error)> 
+        GetDeviceNetworkInterfaces(
+            int deviceId
+            )
     {
         var request = new RestRequest(string.Format(Resource.DeviceNetworkInterfaces, deviceId));
     
@@ -91,7 +97,7 @@ public partial class Client
     }
     
     // https://app.ninjarmm.com/apidocs-beta/core-resources/operations/getDeviceDiskDrives
-    public async Task<IList<DiskDrive>> GetDeviceDiskDrives(int deviceId)
+    public async Task<(List<DiskDrive>? DiskDrives, NinjaApiError? Error)> GetDeviceDiskDrives(int deviceId)
     {
         var request = new RestRequest(string.Format(Resource.DeviceDiskDrives, deviceId));
 
@@ -99,7 +105,10 @@ public partial class Client
     }
     
     // https://app.ninjarmm.com/apidocs-beta/core-resources/operations/getDeviceVolumes
-    public async Task<IList<DeviceVolume>> GetDeviceVolumes(int deviceId, string? include = null)
+    public async Task<(List<DeviceVolume>? DeviceVolumes, NinjaApiError? Error)> GetDeviceVolumes(
+        int deviceId, 
+        string? include = null
+        )
     {
         var request = new RestRequest(string.Format(Resource.DeviceVolumes, deviceId));
         if (!string.IsNullOrWhiteSpace(include)) request.AddQueryParameter(Param.Include, include);
@@ -108,7 +117,7 @@ public partial class Client
     }
     
     // https://app.ninjarmm.com/apidocs-beta/core-resources/operations/getDeviceProcessors
-    public async Task<IList<Processor>> GetDeviceProcessors(int deviceId)
+    public async Task<(List<Processor>? Processors, NinjaApiError? Error)> GetDeviceProcessors(int deviceId)
     {
         var request = new RestRequest(string.Format(Resource.DeviceProcessors, deviceId));
 
@@ -116,7 +125,10 @@ public partial class Client
     }
 
     // https://app.ninjarmm.com/apidocs-beta/core-resources/operations/getDeviceSoftware
-    public async Task<IList<SoftwareInstallation>> GetDeviceSoftwareInventory(int deviceId)
+    public async Task<(List<SoftwareInstallation>? SoftwareInstallations, NinjaApiError? Error)>
+        GetDeviceSoftwareInventory(
+            int deviceId
+            )
     {
         var request = new RestRequest(string.Format(Resource.DeviceSoftwareInventory, deviceId));
 
@@ -124,7 +136,11 @@ public partial class Client
     }
     
     // https://app.ninjarmm.com/apidocs-beta/core-resources/operations/getDeviceAlerts
-    public async Task<IList<Alert>> GetDeviceAlerts(int deviceId, string? lang = null, string? timeZone = null)
+    public async Task<(List<Alert>? Alerts, NinjaApiError? Error)> GetDeviceAlerts(
+        int deviceId, 
+        string? lang = null, 
+        string? timeZone = null
+        )
     {
         var request = new RestRequest(string.Format(Resource.DeviceAlerts, deviceId));
         if (lang is not null) request.AddQueryParameter(Param.Language, lang);
@@ -134,7 +150,11 @@ public partial class Client
     }
     
     // https://app.ninjarmm.com/apidocs-beta/core-resources/operations/getDeviceActiveJobs
-    public async Task<IList<Job>> GetDeviceActiveJobs(int deviceId, string? lang = null, string? timeZone = null)
+    public async Task<(List<Job>? DeviceActiveJobs, NinjaApiError? Error)> GetDeviceActiveJobs(
+        int deviceId, 
+        string? lang = null, 
+        string? timeZone = null
+        )
     {
         var request = new RestRequest(string.Format(Resource.DeviceActiveJobs, deviceId));
         if (lang is not null) request.AddQueryParameter(Param.Language, lang);
@@ -144,7 +164,7 @@ public partial class Client
     }
 
     // https://app.ninjarmm.com/apidocs-beta/core-resources/operations/getDeviceServices
-    public async Task<IList<WindowsService>> GetDeviceWindowsServices(
+    public async Task<(List<WindowsService>? WindowsServices, NinjaApiError? Error)> GetDeviceWindowsServices(
         int deviceId,
         string? name = null,
         ServiceState? state = null
@@ -158,7 +178,9 @@ public partial class Client
     }
 
     // https://app.ninjarmm.com/apidocs-beta/core-resources/operations/getPolicyOverrides
-    public async Task<DevicePolicyOverrides> GetDevicePolicyOverrides(int deviceId)
+    public async Task<(DevicePolicyOverrides? DevicePolicyOverrides, NinjaApiError? Error)> GetDevicePolicyOverrides(
+        int deviceId
+        )
     {
         var request = new RestRequest(string.Format(Resource.DevicePolicyOverrides, deviceId));
 
@@ -166,7 +188,7 @@ public partial class Client
     }
     
     // https://app.ninjarmm.com/apidocs-beta/core-resources/operations/getDeviceActivities
-    public async Task<DeviceActivityResult> GetDeviceActivities(
+    public async Task<(DeviceActivityResult? DeviceActivityResult, NinjaApiError? Error)> GetDeviceActivities(
         int deviceId,
         ActivityType? activityType = null,
         string? lang = null,
@@ -192,7 +214,7 @@ public partial class Client
     }
 
     // https://app.ninjarmm.com/apidocs-beta/core-resources/operations/getDevice
-    public async Task<Device> GetDevice(int deviceId)
+    public async Task<(Device? Device, NinjaApiError? Error)> GetDevice(int deviceId)
     {
         var request = new RestRequest(string.Format(Resource.Device, deviceId));
 
@@ -200,7 +222,7 @@ public partial class Client
     }
 
     // https://app.ninjarmm.com/apidocs-beta/core-resources/operations/getDevicePendingFailedRejectedSoftwarePatches
-    public async Task<IList<SoftwarePatch>> GetDeviceSoftwarePatchStatus(
+    public async Task<(List<SoftwarePatch>? SoftwarePatches, NinjaApiError? Error)> GetDeviceSoftwarePatchStatus(
         int deviceId,
         SoftwarePatchImpact? impact = null,
         string? productIdentifier = null,

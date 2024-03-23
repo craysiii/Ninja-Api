@@ -2,14 +2,14 @@
 
 public record TokenResponse
 {
-    [JsonPropertyName("access_token")]
+    [JsonPropertyName(Property.AccessToken)]
     public string? AccessToken { get; init; }
-    [JsonPropertyName("expires_in")]
+    [JsonPropertyName(Property.ExpiresIn)]
     public int ExpiresIn { get; init; }
-    [JsonPropertyName("scope")]
+    [JsonPropertyName(Property.Scope)]
     public string? Scope { get; init; }
-    [JsonPropertyName("refresh_token")]
+    [JsonPropertyName(Property.RefreshToken)]
     public string? RefreshToken { get; init; }
-    [JsonPropertyName("token_type")]
+    [JsonPropertyName(Property.TokenType)]
     public string? TokenType { get; init; }
 }

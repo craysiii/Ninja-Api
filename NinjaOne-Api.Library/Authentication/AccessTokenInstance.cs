@@ -1,22 +1,12 @@
 ﻿namespace NinjaOne_Api.Library.Authentication;
 
-public class AccessTokenInstance
+public class AccessTokenInstance(TokenResponse tokenResponse)
 {
-    public string AccessToken { get; init; }
-    public string Scope { get; init; }
-    public string? RefreshToken { get; set; }
-    public string TokenType { get; init; }
-    private DateTime Expiry { get; init; }
-
-    public AccessTokenInstance(TokenResponse tokenResponse)
-    {
-        AccessToken = tokenResponse.AccessToken!;
-        Scope = tokenResponse.Scope!;
-        RefreshToken = tokenResponse.RefreshToken;
-        TokenType = tokenResponse.TokenType!;
-
-        Expiry = DateTime.Now.AddSeconds(tokenResponse.ExpiresIn);
-    }
+    public string AccessToken { get; } = tokenResponse.AccessToken!;
+    public string Scope { get; init; } = tokenResponse.Scope!;
+    public string? RefreshToken { get; } = tokenResponse.RefreshToken;
+    public string TokenType { get; } = tokenResponse.TokenType!;
+    private DateTime Expiry { get; } = DateTime.Now.AddSeconds(tokenResponse.ExpiresIn);
 
     public bool IsExpired()
     {

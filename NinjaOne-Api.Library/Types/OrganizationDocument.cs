@@ -11,5 +11,5 @@ public class OrganizationDocument
     [JsonPropertyName(Property.ClientDocumentUpdateTime)]
     public DateTime ClientDocumentUpdateTime { get; set; }
     [JsonPropertyName(Property.AttributeValues)]
-    public IList<DocumentAttribute>? AttributeValues { get; set; }
+    public List<DocumentAttribute>? AttributeValues { get; set; }
 }

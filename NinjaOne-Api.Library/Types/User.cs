@@ -29,9 +29,9 @@ public class User : UserBase
     [JsonPropertyName(Property.OrganizationId)]
     public int? OrganizationId { get; set; }
     [JsonPropertyName(Property.DeviceIds)]
-    public IList<int>? DeviceIds { get; set; }
+    public List<int>? DeviceIds { get; set; }
     [JsonPropertyName(Property.Tags)]
-    public IList<string>? Tags { get; set; }
+    public List<string>? Tags { get; set; }
     [JsonPropertyName(Property.Fields)]
     public JsonElement? Fields { get; set; }
 }

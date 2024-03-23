@@ -1,4 +1,6 @@
-﻿namespace NinjaOne_Api.Library.Authentication;
+﻿using System.Security.Authentication;
+
+namespace NinjaOne_Api.Library.Authentication;
 
 public class NinjaAuthenticator : AuthenticatorBase
 {
@@ -8,64 +10,94 @@ public class NinjaAuthenticator : AuthenticatorBase
     private readonly string _clientId;
     private readonly string _clientSecret;
     private readonly string _scopes;
+    private readonly ILogger<NinjaAuthenticator> _log;
     
-    public NinjaAuthenticator(string baseUrl, string clientId, string clientSecret, ApplicationScopes scopes) : base("")
+    public NinjaAuthenticator(
+        string baseUrl, 
+        string clientId, 
+        string clientSecret, 
+        ApplicationScopes scopes, 
+        LoggerFactory? loggerFactory,
+        LogLevel logLevel
+        ) : base("")
     {
         _baseUrl = baseUrl;
         _clientId = clientId;
         _clientSecret = clientSecret;
-        _scopes = scopes.ToString().ToLower().Replace(",", "");
+        _scopes = scopes.ToString().ToLower().Replace(",", string.Empty);
+        var logFactory = loggerFactory ?? LoggerFactory.Create(builder =>
+        {
+            builder
+                .AddFilter(Logging.FilterAuthenticator, logLevel)
+                .AddSimpleConsole(options =>
+                {
+                    options.SingleLine = true;
+                    options.ColorBehavior = LoggerColorBehavior.Enabled;
+                    options.UseUtcTimestamp = true;
+                    options.TimestampFormat = Logging.TimestampFormat;
+                });
+        });
+        
+        _log = logFactory.CreateLogger<NinjaAuthenticator>();
     }
 
     protected override async ValueTask<Parameter> GetAuthenticationParameter(string accessToken)
     {
-        if (TokenInstance is null || (TokenInstance.IsExpired() && !TokenInstance.IsRefreshable()))
+        if (TokenInstance is null || TokenInstance.IsExpired())
         {
-            TokenInstance = await GetToken();
+            TokenInstance = await GetToken(
+                refresh: TokenInstance is not null && TokenInstance.IsExpired() && TokenInstance.IsRefreshable()
+                );
         }
-
-        if (TokenInstance.IsExpired() && TokenInstance.IsRefreshable())
-        {
-            TokenInstance = await RefreshToken();
-        }
-
-        Token = TokenInstance.AccessToken;
-        return new HeaderParameter(KnownHeaders.Authorization, $"{TokenInstance.TokenType} {TokenInstance.AccessToken}");
+        
+        return new HeaderParameter(
+            KnownHeaders.Authorization, 
+            $"{TokenInstance.TokenType} {TokenInstance.AccessToken}"
+            );
     }
 
-    private async Task<AccessTokenInstance> GetToken()
+    private async Task<AccessTokenInstance> GetToken(bool refresh = false)
     {
         var options = GetAuthenticationClientOptions();
         using var client = new RestClient(options);
 
-        var request = new RestRequest(Resource.Token)
-            .AddParameter("grant_type", "client_credentials")
-            .AddParameter("scope", _scopes);
+        var request = new RestRequest(Resource.Token);
+        request.AddParameter(Param.GrantType, 
+            (refresh ? GrantType.REFRESH_TOKEN : GrantType.CLIENT_CREDENTIALS).ToString().ToLower());
+        if (refresh)
+        {
+            request.AddParameter(Param.RefreshToken, TokenInstance!.RefreshToken);
+        }
+        else
+        {
+            request.AddParameter(Param.Scope, _scopes);
+        }
 
-        var response = await client.PostAsync<TokenResponse>(request);
-        return new AccessTokenInstance(response!);
+        var response = await client.ExecuteAsync(request, Method.Post);
+        _log.LogDebug(
+            "Auth Request Grant: {} Resource: {} Response: {} {}",
+            request.Parameters.TryFind(Param.GrantType)!.Value,
+            request.Resource,
+            (int)response.StatusCode,
+            response.StatusDescription
+        );
+        
+        var jsonElement = JsonDocument.Parse(response.Content ?? string.Empty).RootElement;
+
+        if (response.IsSuccessStatusCode)
+            return new AccessTokenInstance(Serializer.DeserializeObject<TokenResponse>(jsonElement));
+        
+        if (!Client.IsValidJson(response.Content)) throw new AuthenticationException(response.Content);
+        
+        var error = Serializer.DeserializeObject<NinjaApiError>(jsonElement);
+        throw new AuthenticationException(error.ErrorMessage);
     }
-
-    private async Task<AccessTokenInstance> RefreshToken()
-    {
-        var options = GetAuthenticationClientOptions();
-        using var client = new RestClient(options);
-
-        var request = new RestRequest(Resource.Token)
-            .AddParameter("grant_type", "refresh_token")
-            .AddParameter("refresh_token", TokenInstance!.RefreshToken); // Cannot be null
-
-        var response = await client.PostAsync<TokenResponse>(request);
-        return new AccessTokenInstance(response!);
-    }
-
+    
     private RestClientOptions GetAuthenticationClientOptions()
     {
-        var options = new RestClientOptions(_baseUrl)
+        return new RestClientOptions(_baseUrl)
         {
             Authenticator = new HttpBasicAuthenticator(_clientId, _clientSecret)
         };
-
-        return options;
     }
 }

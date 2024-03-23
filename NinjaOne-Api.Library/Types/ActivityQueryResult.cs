@@ -5,5 +5,5 @@ public class ActivityQueryResult
     [JsonPropertyName(Property.LastActivityId)]
     public long? LastActivityId { get; set; }
     [JsonPropertyName(Property.Activities)]
-    public IList<Activity>? Activities { get; set; }
+    public List<Activity>? Activities { get; set; }
 }

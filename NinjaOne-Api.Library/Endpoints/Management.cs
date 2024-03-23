@@ -43,6 +43,12 @@ public partial class Client
     
     // https://app.ninjarmm.com/apidocs-beta/core-resources/operations/updateDevice
     // TODO: Implement UpdateDevice
+    public async Task<(bool Success, NinjaApiError? Error)> UpdateDevice(int deviceId, Hashtable updateParameters)
+    {
+        var request = new RestRequest(string.Format(Resource.Device, deviceId));
+
+        return await PostResource(request, updateParameters, Method.Patch);
+    }
     
     // https://app.ninjarmm.com/apidocs-beta/core-resources/operations/updateOrganization
     // TODO: Implement UpdateOrganization
@@ -55,7 +61,7 @@ public partial class Client
     
     // https://app.ninjarmm.com/apidocs-beta/core-resources/operations/getInstaller
     // TODO: Account for custom installers
-    public async Task<Installer> CreateOrganizationLocationInstaller(
+    public async Task<(Installer? Installer, NinjaApiError? Error)> CreateOrganizationLocationInstaller(
         int organizationId,
         int locationId,
         InstallerType installerType

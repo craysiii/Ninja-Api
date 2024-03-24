@@ -28,6 +28,20 @@ public partial class Client
     
     // https://app.ninjarmm.com/apidocs-beta/core-resources/operations/controlWindowsService
     // TODO: Implement SetDeviceWindowsService
+    public async Task<(bool Success, NinjaApiError? Error)> SetDeviceWindowsService(
+        int deviceId,
+        string serviceName,
+        ServiceAction action
+        )
+    {
+        var request = new RestRequest(string.Format(Resource.DeviceWindowsServiceControl, deviceId, serviceName));
+        var serviceAction = new
+        {
+            action
+        };
+
+        return await PostResource(request, serviceAction);
+    }
     
     // https://app.ninjarmm.com/apidocs-beta/core-resources/operations/rebootDevices
     // TODO: Implement RebootDevice

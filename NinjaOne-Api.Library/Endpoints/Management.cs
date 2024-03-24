@@ -44,7 +44,21 @@ public partial class Client
     }
     
     // https://app.ninjarmm.com/apidocs-beta/core-resources/operations/rebootDevices
-    // TODO: Implement RebootDevice
+    public async Task<(bool Success, NinjaApiError? Error)> RebootDevice(
+        int deviceId,
+        RebootMode rebootMode,
+        string? reason = null
+        )
+    {
+        var request = new RestRequest(string.Format(Resource.DeviceReboot, deviceId, rebootMode.ToString()));
+
+        var rebootReason = new
+        {
+            reason = reason ?? string.Empty
+        };
+
+        return await PostResource(request, rebootReason);
+    }
     
     // https://app.ninjarmm.com/apidocs-beta/core-resources/operations/updateDeviceMaintenance
     public async Task<(bool Success, NinjaApiError? Error)> UpdateDeviceMaintenance(

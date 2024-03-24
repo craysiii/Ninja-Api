@@ -23,6 +23,7 @@ public static class Resource
     public const string DeviceInstalledOSPatches            = $"{Device}/os-patch-installs";
     public const string DeviceInstalledSoftwarePatches      = $"{Device}/software-patch-installs";
     public const string DeviceOSPatches                     = $"{Device}/os-patches";
+    public const string DeviceReboot                        = $"{Device}/reboot/{{1}}";
     public const string DeviceSoftwareInventory             = $"{Device}/software";
     public const string DeviceSoftwarePatchStatus           = $"{Device}/software-patches";
     public const string DeviceVolumes                       = $"{Device}/volumes";

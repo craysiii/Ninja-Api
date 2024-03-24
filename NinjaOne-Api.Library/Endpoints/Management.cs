@@ -33,10 +33,30 @@ public partial class Client
     // TODO: Implement RebootDevice
     
     // https://app.ninjarmm.com/apidocs-beta/core-resources/operations/updateDeviceMaintenance
-    // TODO: Implement UpdateDeviceMaintenance
+    public async Task<(bool Success, NinjaApiError? Error)> UpdateDeviceMaintenance(
+        int deviceId,
+        DateTime start,
+        DateTime end,
+        MaintenanceFeatures disabledFeatures
+        )
+    {
+        var request = new RestRequest(string.Format(Resource.DeviceMaintenance, deviceId));
+
+        var maintenance = new
+        {
+            start = UnixTime(start), end = UnixTime(end), disabledFeatures = disabledFeatures.ToString().Split(',')
+        };
+
+        return await PostResource(request, maintenance, Method.Put);
+    }
     
     // https://app.ninjarmm.com/apidocs-beta/core-resources/operations/cancelDeviceMaintenance
-    // TODO: Implement CancelDeviceMaintenance
+    public async Task<(bool Success, NinjaApiError? Error)> CancelDeviceMaintenance(int deviceId)
+    {
+        var request = new RestRequest(string.Format(Resource.DeviceMaintenance, deviceId));
+
+        return await PostResource(request, null, Method.Delete);
+    }
     
     // https://app.ninjarmm.com/apidocs-beta/core-resources/operations/runScriptOnDevice
     // TODO: Implement RunDeviceScript

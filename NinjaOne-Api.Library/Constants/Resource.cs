@@ -13,6 +13,7 @@ public static class Resource
     public const string DeviceCustomFields                  = $"{Device}/custom-fields";
     public const string DeviceDiskDrives                    = $"{Device}/disks";
     public const string DeviceLastLoggedOnUser              = $"{Device}/last-logged-on-user";
+    public const string DeviceMaintenance                   = $"{Device}/maintenance";
     public const string DeviceNetworkInterfaces             = $"{Device}/network-interfaces";
     public const string DeviceProcessors                    = $"{Device}/processors";
     public const string Devices                             = "devices";

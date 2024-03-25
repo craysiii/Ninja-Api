@@ -3,11 +3,11 @@
 public class DeviceCustomField
 {
     [JsonPropertyName(Property.EntityType)]
-    public EntityType EntityType { get; set; }
+    public EntityType? EntityType { get; set; }
     [JsonPropertyName(Property.Scope)]
-    public Scope Scope { get; set; }
+    public Scope? Scope { get; set; }
     [JsonPropertyName(Property.Type)]
-    public FieldType Type { get; set; }
+    public FieldType? Type { get; set; }
     [JsonPropertyName(Property.Label)]
     public string? Label { get; set; }
     [JsonPropertyName(Property.Description)]
@@ -29,7 +29,7 @@ public class DeviceCustomField
     [JsonPropertyName(Property.Active)]
     public bool? Active { get; set; }
     [JsonPropertyName(Property.CreateTime)]
-    public DateTime CreateTime { get; set; }
+    public DateTime? CreateTime { get; set; }
     [JsonPropertyName(Property.UpdateTime)]
-    public DateTime UpdateTime { get; set; }
+    public DateTime? UpdateTime { get; set; }
 }

@@ -3,7 +3,7 @@
 public class Group
 {
     [JsonPropertyName(Property.Id)]
-    public int Id { get; set; }
+    public int? Id { get; set; }
     [JsonPropertyName(Property.Name)]
     public string? Name { get; set; }
     [JsonPropertyName(Property.Description)]

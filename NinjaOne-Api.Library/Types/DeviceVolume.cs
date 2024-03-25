@@ -15,9 +15,9 @@ public class DeviceVolume
     [JsonPropertyName(Property.Compressed)]
     public bool? Compressed { get; set; }
     [JsonPropertyName(Property.Capacity)]
-    public long Capacity { get; set; }
+    public long? Capacity { get; set; }
     [JsonPropertyName(Property.FreeSpace)]
-    public long FreeSpace { get; set; }
+    public long? FreeSpace { get; set; }
     [JsonPropertyName(Property.SerialNumber)]
     public string? SerialNumber { get; set; }
     [JsonPropertyName(Property.BitLockerStatus)]

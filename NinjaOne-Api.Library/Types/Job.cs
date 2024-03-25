@@ -3,19 +3,19 @@
 public class Job
 {
     [JsonPropertyName(Property.Uid)]
-    public Guid Uid { get; set; }
+    public Guid? Uid { get; set; }
     [JsonPropertyName(Property.DeviceId)]
     public int? DeviceId { get; set; }
     [JsonPropertyName(Property.Message)]
     public string? Message { get; set; }
     [JsonPropertyName(Property.CreateTime)]
-    public DateTime CreateTime { get; set; }
+    public DateTime? CreateTime { get; set; }
     [JsonPropertyName(Property.UpdateTime)]
-    public DateTime UpdateTime { get; set; }
+    public DateTime? UpdateTime { get; set; }
     [JsonPropertyName(Property.SourceType)]
     public SourceType? SourceType { get; set; }
     [JsonPropertyName(Property.SourceConfigUid)]
-    public Guid SourceConfigUid { get; set; }
+    public Guid? SourceConfigUid { get; set; }
     [JsonPropertyName(Property.SourceName)]
     public string? SourceName { get; set; }
     [JsonPropertyName(Property.Subject)]

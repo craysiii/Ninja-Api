@@ -46,4 +46,15 @@ public class DeviceBase
     public DeviceMaintenance? Maintenance { get; set; }
     [JsonPropertyName(Property.References)]
     public DeviceReferences? References { get; set; }
+
+    public DeviceBase UpdateDeviceDto()
+    {
+        return new DeviceBase
+        {
+            DisplayName = DisplayName,
+            NodeRoleId = NodeRoleId,
+            PolicyId = PolicyId,
+            UserData = UserData
+        };
+    }
 }

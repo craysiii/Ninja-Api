@@ -97,6 +97,13 @@ public partial class Client
 
         return await PostResource(request, updateParameters, Method.Patch);
     }
+
+    public async Task<(bool Success, NinjaApiError? Error)> UpdateDevice(DeviceBase device)
+    {
+        var request = new RestRequest(string.Format(Resource.Device, device.Id));
+
+        return await PostResource(request, device.UpdateDeviceDto(), Method.Patch);
+    }
     
     // https://app.ninjarmm.com/apidocs-beta/core-resources/operations/updateOrganization
     // TODO: Implement UpdateOrganization

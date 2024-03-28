@@ -173,7 +173,7 @@ public partial class Client
         StatusCode? status = null,
         ActivityType? type = null,
         string? timeZone = null,
-        string? user = null
+        int? userId = null
         )
     {
         var request = new RestRequest(Resource.Activities);
@@ -190,7 +190,7 @@ public partial class Client
         if (status is not null) request.AddQueryParameter(Param.Status, status.ToString());
         if (type is not null) request.AddQueryParameter(Param.Type, type.ToString());
         if (!string.IsNullOrWhiteSpace(timeZone)) request.AddQueryParameter(Param.TimeZone, timeZone);
-        if (!string.IsNullOrWhiteSpace(user)) request.AddQueryParameter(Param.User, user);
+        if (userId is not null) request.AddQueryParameter(Param.User, userId.Value);
 
         return await GetResource<ActivityQueryResult>(request);
     }

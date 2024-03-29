@@ -106,14 +106,14 @@ public partial class Client
     public async Task<(List<Job>? Jobs, NinjaApiError? Error)> GetActiveJobs(
         string? deviceFilter = null,
         string? language = null,
-        SourceType? sourceType = null,
+        JobType? jobType = null,
         string? timeZone = null
         )
     {
         var request = new RestRequest(Resource.Jobs);
         if (!string.IsNullOrWhiteSpace(deviceFilter)) request.AddQueryParameter(Param.DeviceFilter, deviceFilter);
         if (!string.IsNullOrWhiteSpace(language)) request.AddQueryParameter(Param.Language, language);
-        if (sourceType is not null) request.AddQueryParameter(Param.SourceType, sourceType.Value.ToString());
+        if (jobType is not null) request.AddQueryParameter(Param.JobType, jobType.Value.ToString());
         if (!string.IsNullOrWhiteSpace(timeZone)) request.AddQueryParameter(Param.TimeZone, timeZone);
         
         return await GetResources<Job>(request);

@@ -12,6 +12,7 @@ public static class Param
     public const string Include             = "include";
     public const string InstalledAfter      = "installedAfter";
     public const string InstalledBefore     = "installedBefore";
+    public const string JobType             = "jobType";
     public const string Language            = "lang";
     public const string Limit               = "limit";
     public const string Name                = "name";

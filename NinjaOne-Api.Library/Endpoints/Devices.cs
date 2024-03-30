@@ -68,7 +68,7 @@ public partial class Client
         SoftwarePatchImpact? impact = null,
         DateTime? installedAfter = null,
         DateTime? installedBefore = null,
-        string? productIdentifier = null,
+        Guid? productIdentifier = null,
         SoftwarePatchStatus? status = null,
         SoftwarePatchType? type = null
     )
@@ -77,8 +77,7 @@ public partial class Client
         if (impact is not null) request.AddQueryParameter(Param.Impact, impact.ToString());
         if (installedAfter is not null) request.AddQueryParameter(Param.InstalledAfter, UnixTime(installedAfter.Value));
         if (installedBefore is not null) request.AddQueryParameter(Param.InstalledBefore, UnixTime(installedBefore.Value));
-        if (!string.IsNullOrWhiteSpace(productIdentifier))
-            request.AddQueryParameter(Param.ProductIdentifier, productIdentifier);
+        if (productIdentifier is not null) request.AddQueryParameter(Param.ProductIdentifier, productIdentifier.ToString());
         if (status is not null) request.AddQueryParameter(Param.Status, status.ToString());
         if (type is not null) request.AddQueryParameter(Param.Type, type.ToString());
 

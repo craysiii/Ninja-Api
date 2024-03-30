@@ -224,15 +224,14 @@ public partial class Client
     public async Task<(List<SoftwarePatch>? SoftwarePatches, NinjaApiError? Error)> GetDeviceSoftwarePatchStatus(
         int deviceId,
         SoftwarePatchImpact? impact = null,
-        string? productIdentifier = null,
+        Guid? productIdentifier = null,
         SoftwarePatchStatus? status = null,
         SoftwarePatchType? type = null
         )
     {
         var request = new RestRequest(string.Format(Resource.DeviceSoftwarePatchStatus, deviceId));
         if (impact is not null) request.AddQueryParameter(Param.Impact, impact.ToString());
-        if (!string.IsNullOrWhiteSpace(productIdentifier))
-            request.AddQueryParameter(Param.ProductIdentifier, productIdentifier);
+        if (productIdentifier is not null) request.AddQueryParameter(Param.ProductIdentifier, productIdentifier.ToString());
         if (status is not null) request.AddQueryParameter(Param.Status, status.ToString());
         if (type is not null) request.AddQueryParameter(Param.Type, type.ToString());
 

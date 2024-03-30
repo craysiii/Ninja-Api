@@ -137,12 +137,12 @@ public partial class Client
     // https://app.ninjarmm.com/apidocs-beta/core-resources/operations/getDeviceAlerts
     public async Task<(List<Alert>? Alerts, NinjaApiError? Error)> GetDeviceAlerts(
         int deviceId, 
-        string? lang = null, 
+        string? language = null, 
         string? timeZone = null
         )
     {
         var request = new RestRequest(string.Format(Resource.DeviceAlerts, deviceId));
-        if (lang is not null) request.AddQueryParameter(Param.Language, lang);
+        if (language is not null) request.AddQueryParameter(Param.Language, language);
         if (timeZone is not null) request.AddQueryParameter(Param.TimeZone, timeZone);
 
         return await GetResources<Alert>(request);
@@ -151,12 +151,12 @@ public partial class Client
     // https://app.ninjarmm.com/apidocs-beta/core-resources/operations/getDeviceActiveJobs
     public async Task<(List<Job>? DeviceActiveJobs, NinjaApiError? Error)> GetDeviceActiveJobs(
         int deviceId, 
-        string? lang = null, 
+        string? language = null, 
         string? timeZone = null
         )
     {
         var request = new RestRequest(string.Format(Resource.DeviceActiveJobs, deviceId));
-        if (lang is not null) request.AddQueryParameter(Param.Language, lang);
+        if (language is not null) request.AddQueryParameter(Param.Language, language);
         if (timeZone is not null) request.AddQueryParameter(Param.TimeZone, timeZone);
 
         return await GetResources<Job>(request);
@@ -190,7 +190,7 @@ public partial class Client
     public async Task<(DeviceActivityResult? DeviceActivityResult, NinjaApiError? Error)> GetDeviceActivities(
         int deviceId,
         ActivityType? activityType = null,
-        string? lang = null,
+        string? language = null,
         int? newerThan = null,
         int? olderThan = null,
         int pageSize = DefaultMaxPageSize,
@@ -201,7 +201,7 @@ public partial class Client
     {
         var request = new RestRequest(string.Format(Resource.DeviceActivities, deviceId));
         if (activityType is not null) request.AddQueryParameter(Param.ActivityType, activityType.ToString());
-        if (!string.IsNullOrWhiteSpace(lang)) request.AddQueryParameter(Param.Language, lang);
+        if (!string.IsNullOrWhiteSpace(language)) request.AddQueryParameter(Param.Language, language);
         if (newerThan is not null) request.AddQueryParameter(Param.NewerThan, newerThan.Value);
         if (olderThan is not null) request.AddQueryParameter(Param.OlderThan, olderThan.Value);
         request.AddQueryParameter(Param.PageSize, pageSize);

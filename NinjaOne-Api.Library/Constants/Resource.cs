@@ -30,11 +30,13 @@ public static class Resource
     public const string DeviceVolumes                       = $"{Device}/volumes";
     public const string DeviceWindowsServiceControl         = $"{Device}/windows-service/{{1}}/control";
     public const string DeviceWindowsServices               = $"{Device}/windows-services";
+    public const string EnabledNotificationChannels         = $"{NotificationChannels}/enabled";
     public const string GenerateInstaller                   = "organization/generate-installer";
     public const string Groups                              = "groups";
     public const string GroupMembers                        = "group/{0}/device-ids";
     public const string Jobs                                = "jobs";
     public const string Locations                           = "locations";
+    public const string NotificationChannels                = "notification-channels";
     public const string Organization                        = "organization/{0}";
     public const string OrganizationDevices                 = $"{Organization}/devices";
     public const string OrganizationDocument                = $"{Organization}/document/{{1}}";

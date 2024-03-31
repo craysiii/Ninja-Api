@@ -423,9 +423,8 @@ public partial class Client
         return await GetResources<Location>(request);
     }
     
-    // https://app.ninjarmm.com/apidocs-beta/core-resources/operations/getAutomationScripts
     /// <summary>
-    /// Get a list of automation scripts
+    /// Get a list of automation scripts<br/>
     /// <a href="https://app.ninjarmm.com/apidocs-beta/core-resources/operations/getAutomationScripts">getAutomationScripts</a>
     /// on Ninja One Public API Reference
     /// </summary>
@@ -446,5 +445,28 @@ public partial class Client
         if (!string.IsNullOrWhiteSpace(language)) request.AddQueryParameter(Param.Language, language);
 
         return await GetResources<AutomationScript>(request);
+    }
+    
+    /// <summary>
+    /// Get a list of notification channels<br/>
+    /// <a href="https://app.ninjarmm.com/apidocs-beta/core-resources/operations/getNotificationChannels">getNotificationChannels</a>
+    /// on Ninja One Public API Reference<br/>
+    /// <a href="https://app.ninjarmm.com/apidocs-beta/core-resources/operations/getEnabledNotificationChannels">getEnabledNotificationChannels</a>
+    /// on Ninja One Public API Reference
+    /// </summary>
+    /// <param name="enabled">Get only enabled notification channels</param>
+    /// <example>
+    /// <code>
+    /// var result = await client.GetNotificationChannels();
+    /// </code>
+    /// </example>
+    /// <returns>A named tuple comprised of a nullable list of <see cref="NotificationChannel"/> and a nullable <see cref="NinjaApiError"/></returns>
+    public async Task<(List<NotificationChannel>? NotificationChannels, NinjaApiError? Error)> GetNotificationChannels(
+        bool enabled = false
+        )
+    {
+        var request = new RestRequest(enabled ? Resource.EnabledNotificationChannels : Resource.NotificationChannels);
+
+        return await GetResources<NotificationChannel>(request);
     }
 }

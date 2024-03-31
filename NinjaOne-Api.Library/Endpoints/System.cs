@@ -422,4 +422,29 @@ public partial class Client
         
         return await GetResources<Location>(request);
     }
+    
+    // https://app.ninjarmm.com/apidocs-beta/core-resources/operations/getAutomationScripts
+    /// <summary>
+    /// Get a list of automation scripts
+    /// <a href="https://app.ninjarmm.com/apidocs-beta/core-resources/operations/getAutomationScripts">getAutomationScripts</a>
+    /// on Ninja One Public API Reference
+    /// </summary>
+    /// <param name="language">Get automations scripts of a certain scripting language</param>
+    /// <example>
+    /// <code>
+    /// var scripts = await client.GetAutomationScripts(
+    ///     language: "powershell"
+    /// );
+    /// </code>
+    /// </example>
+    /// <returns>A named tuple comprised of a nullable list of <see cref="AutomationScript"/> and a nullable <see cref="NinjaApiError"/></returns>
+    public async Task<(List<AutomationScript>? AutomationScripts, NinjaApiError? Error)> GetAutomationScripts(
+        string? language = null
+    )
+    {
+        var request = new RestRequest(Resource.AutomationScripts);
+        if (!string.IsNullOrWhiteSpace(language)) request.AddQueryParameter(Param.Language, language);
+
+        return await GetResources<AutomationScript>(request);
+    }
 }

@@ -4,6 +4,7 @@ public static class Resource
 {
     public const string Activities                          = "activities";
     public const string Alerts                              = "alerts";
+    public const string AutomationScripts                   = "automation/scripts";
     public const string CustomFieldDefinitions              = "device-custom-fields";
     public const string DetailedCustomFieldReport           = "queries/custom-fields-detailed";
     public const string Device                              = "/device/{0}";

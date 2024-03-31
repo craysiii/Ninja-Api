@@ -90,6 +90,7 @@ internal static class Property
     public const string JobType                         = "jobType";
     public const string KBNumber                        = "kbNumber";
     public const string Label                           = "label";
+    public const string Language                        = "language";
     public const string LastActivityId                  = "lastActivityId";
     public const string LastContact                     = "lastContact";
     public const string LastEvaluated                   = "lastEvaluated";
@@ -132,6 +133,7 @@ internal static class Property
     public const string NotifyAllClients                = "notifyAllClients";
     public const string Offline                         = "offline";
     public const string Offset                          = "offset";
+    public const string OperatingSystems                = "operatingSystems";
     public const string Options                         = "options";
     public const string Organization                    = "organization";
     public const string OrganizationId                  = "organizationId";
@@ -170,7 +172,9 @@ internal static class Property
     public const string RunCount                        = "runCount";
     public const string Scope                           = "scope";
     public const string Score                           = "score";
+    public const string ScriptParameters                = "scriptParameters";
     public const string ScriptPermission                = "scriptPermission";
+    public const string ScriptVariables                 = "scriptVariables";
     public const string SerialNumber                    = "serialNumber";
     public const string SeriesUid                       = "seriesId";
     public const string Settings                        = "settings";
@@ -215,6 +219,7 @@ internal static class Property
     public const string UserType                        = "userType";
     public const string Value                           = "value";
     public const string Values                          = "values";
+    public const string ValueList                       = "valueList";
     public const string ValueUpdateTime                 = "valueUpdateTime";
     public const string VendorName                      = "vendorName";
     public const string Version                         = "version";

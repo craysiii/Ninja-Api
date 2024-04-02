@@ -7,7 +7,7 @@ public class DeviceCustomFieldContent
     [JsonPropertyName(Property.EndUserCustomization)]
     public DeviceCustomFieldEndUserCustomization? EndUserCustomization { get; set; }
     [JsonPropertyName(Property.Values)]
-    public IList<DeviceCustomFieldValue>? Values { get; set; }
+    public List<DeviceCustomFieldValue>? Values { get; set; }
     [JsonPropertyName(Property.Required)]    
     public bool? Required { get; set; }
     [JsonPropertyName(Property.FooterText)]

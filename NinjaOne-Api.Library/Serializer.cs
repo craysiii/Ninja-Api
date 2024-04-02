@@ -2,35 +2,38 @@
 
 public static class Serializer
 {
+    private static readonly JsonSerializerOptions SerializerOptions = new()
+    {
+        DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull,
+        Converters =
+        {
+            new UnixTimeStampConverter(),
+            new JsonStringEnumConverter(),
+            new IPAddressConverter(),
+            new PhysicalAddressConverter()
+        }
+    };
+    
+    private static readonly JsonSerializerOptions DeserializerOptions = new()
+    {
+        NumberHandling = JsonNumberHandling.AllowReadingFromString,
+        Converters =
+        {
+            new UnixTimeStampConverter(),
+            new JsonStringEnumConverter(),
+            new IPAddressConverter(),
+            new PhysicalAddressConverter()
+        }
+    };
+    
     public static string SerializeObject(object payload)
     {
-        var options = new JsonSerializerOptions
-        {
-            DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull
-        };
-        
-        options.Converters.Add(new UnixTimeStampConverter());
-        options.Converters.Add(new JsonStringEnumConverter());
-        options.Converters.Add(new IPAddressConverter());
-        options.Converters.Add(new PhysicalAddressConverter());
-        
-
-        return JsonSerializer.Serialize(payload, options);
+        return JsonSerializer.Serialize(payload, SerializerOptions);
     }
 
     public static T DeserializeObject<T>(JsonElement payload)
     {
-        var options = new JsonSerializerOptions
-        {
-            NumberHandling = JsonNumberHandling.AllowReadingFromString
-        };
-        
-        options.Converters.Add(new UnixTimeStampConverter());
-        options.Converters.Add(new JsonStringEnumConverter());
-        options.Converters.Add(new IPAddressConverter());
-        options.Converters.Add(new PhysicalAddressConverter());
-        
-        return JsonSerializer.Deserialize<T>(payload.ToString() ?? "", options)!;
+        return JsonSerializer.Deserialize<T>(payload.ToString() ?? string.Empty, DeserializerOptions)!;
     }
 
     public static List<T> DeserializeList<T>(JsonElement payload)

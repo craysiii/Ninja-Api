@@ -3,11 +3,11 @@
 public class Activity
 {
     [JsonPropertyName(Property.Id)]
-    public long Id { get; set; }
+    public long? Id { get; set; }
     [JsonPropertyName(Property.ActivityTime)]
-    public DateTime ActivityTime { get; set; }
+    public DateTime? ActivityTime { get; set; }
     [JsonPropertyName(Property.DeviceId)]
-    public int DeviceId { get; set; }
+    public int? DeviceId { get; set; }
     [JsonPropertyName(Property.Severity)]
     public Severity? Severity { get; set; }
     [JsonPropertyName(Property.Priority)]
@@ -15,9 +15,9 @@ public class Activity
     [JsonPropertyName(Property.SeriesUid)]
     public Guid? SeriesUid { get; set; }
     [JsonPropertyName(Property.ActivityType)]
-    public ActivityType ActivityType { get; set; }
+    public ActivityType? ActivityType { get; set; }
     [JsonPropertyName(Property.StatusCode)]
-    public StatusCode StatusCode { get; set; }
+    public StatusCode? StatusCode { get; set; }
     [JsonPropertyName(Property.Status)]
     public string? Status { get; set; }
     [JsonPropertyName(Property.ActivityResult)]

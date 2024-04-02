@@ -3,9 +3,9 @@
 public class DeviceMaintenance
 {
     [JsonPropertyName(Property.Status)]
-    public MaintenanceStatus Status { get; set; }
+    public MaintenanceStatus? Status { get; set; }
     [JsonPropertyName(Property.Start)]
-    public DateTime Start { get; set; }
+    public DateTime? Start { get; set; }
     [JsonPropertyName(Property.End)]
-    public DateTime End { get; set; }
+    public DateTime? End { get; set; }
 }

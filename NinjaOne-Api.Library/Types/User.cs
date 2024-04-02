@@ -23,15 +23,15 @@ public class User : UserBase
     [JsonPropertyName(Property.MfaConfigured)]
     public bool? MfaConfigured { get; set; }
     [JsonPropertyName(Property.UserType)]
-    public UserType UserType { get; set; }
+    public UserType? UserType { get; set; }
     [JsonPropertyName(Property.InvitationStatus)]
-    public InvitationStatus InvitationStatus { get; set; }
+    public InvitationStatus? InvitationStatus { get; set; }
     [JsonPropertyName(Property.OrganizationId)]
     public int? OrganizationId { get; set; }
     [JsonPropertyName(Property.DeviceIds)]
-    public IList<int>? DeviceIds { get; set; }
+    public List<int>? DeviceIds { get; set; }
     [JsonPropertyName(Property.Tags)]
-    public IList<string>? Tags { get; set; }
+    public List<string>? Tags { get; set; }
     [JsonPropertyName(Property.Fields)]
     public JsonElement? Fields { get; set; }
 }

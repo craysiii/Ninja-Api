@@ -1,7 +1,8 @@
 ﻿namespace NinjaOne_Api.Library.Types;
 
-public class OSPatch : OSPatchBase
+public class 
+    OSPatch : OSPatchBase
 {
     [JsonPropertyName(Property.Status)]
-    public OSPatchStatus Status { get; set; }
+    public OSPatchStatus? Status { get; set; }
 }

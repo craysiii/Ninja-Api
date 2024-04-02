@@ -3,5 +3,5 @@
 public class DevicePolicyOverrides
 {
     [JsonPropertyName(Property.Overrides)]
-    public IList<string>? Overrides { get; set; }
+    public List<string>? Overrides { get; set; }
 }

@@ -3,23 +3,23 @@
 public class BackupUsageBase
 {
     [JsonPropertyName(Property.RevisionsCurrentSize)]
-    public long RevisionsCurrentSize { get; set; }
+    public long? RevisionsCurrentSize { get; set; }
     [JsonPropertyName(Property.RevisionsPreviousSize)]
-    public long RevisionsPreviousSize { get; set; }
+    public long? RevisionsPreviousSize { get; set; }
     [JsonPropertyName(Property.RevisionsDeletedSize)]
-    public long RevisionsDeletedSize { get; set; }
+    public long? RevisionsDeletedSize { get; set; }
     [JsonPropertyName(Property.LocalFileFolderSize)]
-    public long LocalFileFolderSize { get; set; }
+    public long? LocalFileFolderSize { get; set; }
     [JsonPropertyName(Property.LocalImageSize)]
-    public long LocalImageSize { get; set; }
+    public long? LocalImageSize { get; set; }
     [JsonPropertyName(Property.CloudFileFolderSize)]
-    public long CloudFileFolderSize { get; set; }
+    public long? CloudFileFolderSize { get; set; }
     [JsonPropertyName(Property.CloudImageSize)]
-    public long CloudImageSize { get; set; }
+    public long? CloudImageSize { get; set; }
     [JsonPropertyName(Property.RevisionsTotalSize)]
-    public long RevisionsTotalSize { get; set; }
+    public long? RevisionsTotalSize { get; set; }
     [JsonPropertyName(Property.CloudTotalSize)]
-    public long CloudTotalSize { get; set; }
+    public long? CloudTotalSize { get; set; }
     [JsonPropertyName(Property.LocalTotalSize)]
-    public long LocalTotalSize { get; set; }
+    public long? LocalTotalSize { get; set; }
 }

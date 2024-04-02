@@ -4,6 +4,7 @@ public static class Resource
 {
     public const string Activities                          = "activities";
     public const string Alerts                              = "alerts";
+    public const string AutomationScripts                   = "automation/scripts";
     public const string CustomFieldDefinitions              = "device-custom-fields";
     public const string DetailedCustomFieldReport           = "queries/custom-fields-detailed";
     public const string Device                              = "/device/{0}";
@@ -13,6 +14,7 @@ public static class Resource
     public const string DeviceCustomFields                  = $"{Device}/custom-fields";
     public const string DeviceDiskDrives                    = $"{Device}/disks";
     public const string DeviceLastLoggedOnUser              = $"{Device}/last-logged-on-user";
+    public const string DeviceMaintenance                   = $"{Device}/maintenance";
     public const string DeviceNetworkInterfaces             = $"{Device}/network-interfaces";
     public const string DeviceProcessors                    = $"{Device}/processors";
     public const string Devices                             = "devices";
@@ -22,15 +24,19 @@ public static class Resource
     public const string DeviceInstalledOSPatches            = $"{Device}/os-patch-installs";
     public const string DeviceInstalledSoftwarePatches      = $"{Device}/software-patch-installs";
     public const string DeviceOSPatches                     = $"{Device}/os-patches";
+    public const string DeviceReboot                        = $"{Device}/reboot/{{1}}";
     public const string DeviceSoftwareInventory             = $"{Device}/software";
     public const string DeviceSoftwarePatchStatus           = $"{Device}/software-patches";
     public const string DeviceVolumes                       = $"{Device}/volumes";
+    public const string DeviceWindowsServiceControl         = $"{Device}/windows-service/{{1}}/control";
     public const string DeviceWindowsServices               = $"{Device}/windows-services";
+    public const string EnabledNotificationChannels         = $"{NotificationChannels}/enabled";
     public const string GenerateInstaller                   = "organization/generate-installer";
     public const string Groups                              = "groups";
     public const string GroupMembers                        = "group/{0}/device-ids";
     public const string Jobs                                = "jobs";
     public const string Locations                           = "locations";
+    public const string NotificationChannels                = "notification-channels";
     public const string Organization                        = "organization/{0}";
     public const string OrganizationDevices                 = $"{Organization}/devices";
     public const string OrganizationDocument                = $"{Organization}/document/{{1}}";

@@ -14,7 +14,7 @@ public class DeviceNetworkInterface
     [JsonPropertyName(Property.DnsServers)]
     public JsonElement? DnsServers { get; set; }
     [JsonPropertyName(Property.InterfaceIndex)]
-    public int InterfaceIndex { get; set; }
+    public int? InterfaceIndex { get; set; }
     [JsonPropertyName(Property.InterfaceName)]
     public string? InterfaceName { get; set; }
     [JsonPropertyName(Property.IPAddress)]

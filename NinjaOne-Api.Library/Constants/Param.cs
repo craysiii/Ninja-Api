@@ -7,10 +7,12 @@ public static class Param
     public const string Before              = "before";
     public const string Class               = "class";
     public const string DeviceFilter        = "df";
+    public const string GrantType           = "grant_type";
     public const string Impact              = "impact";
     public const string Include             = "include";
     public const string InstalledAfter      = "installedAfter";
     public const string InstalledBefore     = "installedBefore";
+    public const string JobType             = "jobType";
     public const string Language            = "lang";
     public const string Limit               = "limit";
     public const string Name                = "name";
@@ -19,6 +21,8 @@ public static class Param
     public const string PageSize            = "pageSize";
     public const string ProductIdentifier   = "productIdentifier";
     public const string Query               = "q";
+    public const string RefreshToken        = "refresh_token";
+    public const string Scope               = "scope";
     public const string SeriesUid           = "seriesUid";
     public const string Severity            = "severity";
     public const string SourceConfigUid     = "sourceConfigUid";

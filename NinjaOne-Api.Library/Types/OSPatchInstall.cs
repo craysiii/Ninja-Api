@@ -3,5 +3,5 @@
 public class OSPatchInstall : OSPatchBase
 {
     [JsonPropertyName(Property.Status)]
-    public OSPatchInstallStatus Status { get; set; }
+    public OSPatchInstallStatus? Status { get; set; }
 }

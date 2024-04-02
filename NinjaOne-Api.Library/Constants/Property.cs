@@ -2,6 +2,7 @@
 
 internal static class Property
 {
+    public const string AccessToken                     = "access_token";
     public const string Active                          = "active";
     public const string Activities                      = "activities";
     public const string ActivityResult                  = "activityResult";
@@ -63,7 +64,9 @@ internal static class Property
     public const string EndUserCustomization            = "endUserCustomization";
     public const string EndUserPermission               = "endUserPermission";
     public const string EntityType                      = "entityType";
+    public const string ErrorMessage                    = "errorMessage";
     public const string Expires                         = "expires";
+    public const string ExpiresIn                       = "expires_in";
     public const string Fields                          = "fields";
     public const string FileSystem                      = "fileSystem";
     public const string FirstName                       = "firstName";
@@ -71,6 +74,7 @@ internal static class Property
     public const string FreeSpace                       = "freeSpace";
     public const string Id                              = "id";
     public const string Impact                          = "impact";
+    public const string IncidentId                      = "incidentId";
     public const string InitializedForProtection        = "initializedForProtection";
     public const string Installable                     = "installable";
     public const string InstallDate                     = "installDate";
@@ -86,6 +90,7 @@ internal static class Property
     public const string JobType                         = "jobType";
     public const string KBNumber                        = "kbNumber";
     public const string Label                           = "label";
+    public const string Language                        = "language";
     public const string LastActivityId                  = "lastActivityId";
     public const string LastContact                     = "lastContact";
     public const string LastEvaluated                   = "lastEvaluated";
@@ -98,7 +103,9 @@ internal static class Property
     public const string LocalImageSize                  = "localImageSize";
     public const string LocalTotalSize                  = "localTotalSize";
     public const string Location                        = "location";
+    public const string LocationDescription             = "locationDescription";
     public const string LocationId                      = "locationId";
+    public const string LocationName                    = "locationName";
     public const string Locations                       = "locations";
     public const string LockStatus                      = "lockStatus";
     public const string LogicalCoreCount                = "numLogicalCores";
@@ -126,9 +133,11 @@ internal static class Property
     public const string NotifyAllClients                = "notifyAllClients";
     public const string Offline                         = "offline";
     public const string Offset                          = "offset";
+    public const string OperatingSystems                = "operatingSystems";
     public const string Options                         = "options";
     public const string Organization                    = "organization";
     public const string OrganizationId                  = "organizationId";
+    public const string OrganizationName                = "organizationName";
     public const string Overrides                       = "overrides";
     public const string ParentDeviceId                  = "parentDeviceId";
     public const string ParentPolicyId                  = "parentPolicyId";
@@ -149,6 +158,8 @@ internal static class Property
     public const string PsaTicketId                     = "psaTicketId";
     public const string PublicIP                        = "publicIP";
     public const string References                      = "references";
+    public const string RefreshToken                    = "refresh_token";
+    public const string ResultCode                      = "resultCode";
     public const string Query                           = "query";
     public const string Required                        = "required";
     public const string RevisionsCurrentSize            = "revisionsCurrentSize";
@@ -161,7 +172,9 @@ internal static class Property
     public const string RunCount                        = "runCount";
     public const string Scope                           = "scope";
     public const string Score                           = "score";
+    public const string ScriptParameters                = "scriptParameters";
     public const string ScriptPermission                = "scriptPermission";
+    public const string ScriptVariables                 = "scriptVariables";
     public const string SerialNumber                    = "serialNumber";
     public const string SeriesUid                       = "seriesId";
     public const string Settings                        = "settings";
@@ -190,6 +203,7 @@ internal static class Property
     public const string Text                            = "text";
     public const string TicketTemplateId                = "ticketTemplateId";
     public const string Title                           = "title";
+    public const string TokenType                       = "token_type";
     public const string ToolTipText                     = "tooltipText";
     public const string TrayIcon                        = "trayicon";
     public const string Type                            = "type";
@@ -205,6 +219,7 @@ internal static class Property
     public const string UserType                        = "userType";
     public const string Value                           = "value";
     public const string Values                          = "values";
+    public const string ValueList                       = "valueList";
     public const string ValueUpdateTime                 = "valueUpdateTime";
     public const string VendorName                      = "vendorName";
     public const string Version                         = "version";

@@ -3,7 +3,7 @@
 public class Location
 {
     [JsonPropertyName(Property.Id)]
-    public int Id { get; set; }
+    public int? Id { get; set; }
     [JsonPropertyName(Property.OrganizationId)]
     public int? OrganizationId { get; set; }
     [JsonPropertyName(Property.Name)]

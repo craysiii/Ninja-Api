@@ -6,6 +6,26 @@ public partial class Client
     private readonly RestClient _restClient;
     private readonly ILogger<Client> _log;
 
+    /// <summary>
+    /// Create a new NinjaApi Client
+    /// </summary>
+    /// <param name="clientId">Ninja Api Client Id</param>
+    /// <param name="clientSecret">Ninja Api Client Secret</param>
+    /// <param name="scopes">Application Scope(s) to request - accepts multiple scopes</param>
+    /// <param name="instance">Ninja Api Server Instance</param>
+    /// <param name="loggerFactory">Optional LoggingFactory</param>
+    /// <param name="logLevel">Optional LogLevel - default is LogLevel.None</param>
+    /// <example>
+    /// <code>
+    /// var client = new Client(
+    ///     clientId: "clientid",
+    ///     clientSecret: "clientsecret",
+    ///     scopes: ApplicationScopes.MONITORING | ApplicationScopes.OFFLINE_ACCESS,
+    ///     instance: Instance.US,
+    ///     logLevel: LogLevel.Trace
+    /// );
+    /// </code>
+    /// </example>
     public Client(
         string clientId,
         string clientSecret,

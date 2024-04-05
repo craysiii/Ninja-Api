@@ -285,8 +285,59 @@ public partial class Client
         return await PostResource<Installer>(request, installer);
     }
     
-    // https://app.ninjarmm.com/apidocs-beta/core-resources/operations/updateLocation
-    // TODO: Implement UpdateLocation
+    /// <summary>
+    /// Update modifiable properties for a Location.<br/>
+    /// <a href="https://app.ninjarmm.com/apidocs-beta/core-resources/operations/updateLocation">updateLocation</a>
+    /// on Ninja One Public API Reference
+    /// </summary>
+    /// <param name="organizationId">Id of the organization</param>
+    /// <param name="locationId">Id of the location</param>
+    /// <param name="updateParameters">A <c>Hashtable</c> containing the fields to be updated</param>
+    /// <example>
+    /// <code>
+    /// var response = await client.UpdateLocation(
+    ///     organizationId: 1,
+    ///     locationId: 5,
+    ///     new Hashtable
+    ///     {
+    ///         { "name", "Location X"}
+    ///     }
+    /// );
+    /// </code>
+    /// </example>
+    /// <returns>A named tuple comprised of a boolean indicating success and a nullable <see cref="NinjaApiError"/></returns>
+    public async Task<(bool Success, NinjaApiError? Error)> UpdateLocation(
+        int organizationId,
+        int locationId,
+        Hashtable updateParameters
+    )
+    {
+        var request = new RestRequest(string.Format(Resource.OrganizationLocation, organizationId, locationId));
+
+        return await PostResource(request, updateParameters, Method.Patch);
+    }
+    
+    /// <summary>
+    /// Update modifiable properties for a Location.<br/>
+    /// <a href="https://app.ninjarmm.com/apidocs-beta/core-resources/operations/updateLocation">updateLocation</a>
+    /// on Ninja One Public API Reference
+    /// </summary>
+    /// <param name="location">The <c>Location</c> instance to derive the organization Id, location Id, and updated fields from</param>
+    /// <example>
+    /// <code>
+    /// var org = await client.GetOrganization(organizationId: 1);
+    /// var location = org.Organization!.Locations!.First();
+    /// location.Name = "Location X";
+    /// var result = await client.UpdateLocation(location);
+    /// </code>
+    /// </example>
+    /// <returns>A named tuple comprised of a boolean indicating success and a nullable <see cref="NinjaApiError"/></returns>
+    public async Task<(bool Success, NinjaApiError? Error)> UpdateLocation(Location location)
+    {
+        var request = new RestRequest(string.Format(Resource.OrganizationLocation, location.OrganizationId, location.Id));
+
+        return await PostResource(request, location.UpdateLocationDto(), Method.Patch);
+    }
     
     // https://app.ninjarmm.com/apidocs-beta/core-resources/operations/updateNodeRolePolicyAssignmentForOrganization
     // TODO: Implement UpdateOrganizationPolicyAssignments

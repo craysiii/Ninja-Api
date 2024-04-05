@@ -42,6 +42,7 @@ public static class Resource
     public const string OrganizationDocument                = $"{Organization}/document/{{1}}";
     public const string OrganizationDocuments               = $"{Organization}/documents";
     public const string OrganizationCustomFields            = $"{Organization}/custom-fields";
+    public const string OrganizationLocation                = $"{Organization}/locations/{{1}}";
     public const string OrganizationLocations               = $"{Organization}/locations";
     public const string OrganizationLocationCustomFields    = $"{Organization}/location/{{1}}/custom-fields";
     public const string OrganizationLocationBackup          = $"{Organization}/location/{{1}}/backup/usage";

@@ -154,7 +154,7 @@ public partial class Client
     // TODO: Implement RunDeviceScript
     
     /// <summary>
-    /// Update the <c>displayName</c>, <c>policyId</c>, <c>nodeRoleId</c>, and <c>userData</c> fields for the specified Device.<br/>
+    /// Update modifiable properties for a Device.<br/>
     /// <a href="https://app.ninjarmm.com/apidocs-beta/core-resources/operations/updateDevice">updateDevice</a>
     /// on Ninja One Public API Reference
     /// </summary>
@@ -177,7 +177,7 @@ public partial class Client
     }
 
     /// <summary>
-    /// Update the <c>displayName</c>, <c>policyId</c>, <c>nodeRoleId</c>, and <c>userData</c> fields for the specified Device.<br/>
+    /// Update modifiable properties for a Device.<br/>
     /// <a href="https://app.ninjarmm.com/apidocs-beta/core-resources/operations/updateDevice">updateDevice</a>
     /// on Ninja One Public API Reference
     /// </summary>

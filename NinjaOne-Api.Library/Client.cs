@@ -64,7 +64,7 @@ public partial class Client
         return logFactory.CreateLogger<Client>();
     }
     
-    private async Task<(T?, NinjaApiError?)> GetResource<T>(RestRequest request, string? property = null)
+    private async Task<(T? Resource, NinjaApiError? Error)> GetResource<T>(RestRequest request, string? property = null)
     {
         var response = await ExecuteRequest(request);
         
@@ -81,7 +81,7 @@ public partial class Client
         return (Serializer.DeserializeObject<T>(response.Element.Value), null);
     }
 
-    private async Task<(List<T>?, NinjaApiError?)> GetResources<T>(RestRequest request, string? property = null)
+    private async Task<(List<T>? Resources, NinjaApiError? Error)> GetResources<T>(RestRequest request, string? property = null)
     {
         var response = await ExecuteRequest(request);
         

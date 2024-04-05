@@ -162,7 +162,7 @@ public partial class Client
     /// <param name="updateParameters">A <c>Hashtable</c> containing the fields to be updated</param>
     /// <example>
     /// <code>
-    /// response = await client.UpdateDevice(deviceId: 1, new Hashtable
+    /// var response = await client.UpdateDevice(deviceId: 1, new Hashtable
     /// {
     ///    { "displayName", "First Device"}
     /// });
@@ -206,7 +206,7 @@ public partial class Client
     /// <param name="updateParameters">A <c>Hashtable</c> containing the fields to be updated</param>
     /// <example>
     /// <code>
-    /// response = await client.UpdateOrganization(organizationId: 1, new Hashtable
+    /// var response = await client.UpdateOrganization(organizationId: 1, new Hashtable
     /// {
     ///    { "name", "Organization X"}
     /// });

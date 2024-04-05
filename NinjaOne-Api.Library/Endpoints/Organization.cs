@@ -20,7 +20,16 @@ public partial class Client
     {
         var request = new RestRequest(string.Format(Resource.Organization, organizationId));
 
-        return await GetResource<Organization>(request);
+        var result =  await GetResource<Organization>(request);
+
+        if (result.Resource?.Locations is null || result.Resource.Locations.Count == 0) return result;
+
+        foreach (var location in result.Resource.Locations)
+        {
+            location.OrganizationId = organizationId;
+        }
+
+        return result;
     }
     
     /// <summary>
@@ -118,7 +127,16 @@ public partial class Client
     {
         var request = new RestRequest(string.Format(Resource.OrganizationLocations, organizationId));
 
-        return await GetResources<Location>(request);
+        var result =  await GetResources<Location>(request);
+        
+        if (result.Resources is null || result.Resources.Count == 0) return result;
+        
+        foreach (var location in result.Resources)
+        {
+            location.OrganizationId = organizationId;
+        }
+
+        return result;
     }
     
     /// <summary>

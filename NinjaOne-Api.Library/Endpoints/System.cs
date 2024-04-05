@@ -144,7 +144,19 @@ public partial class Client
         request.AddQueryParameter(Param.After, after);
         request.AddQueryParameter(Param.PageSize, pageSize);
         
-        return await GetResources<Organization>(request);
+        var result = await GetResources<Organization>(request);
+        
+        if (result.Resources is null || result.Resources.Count == 0) return result;
+        
+        foreach (var org in result.Resources)
+        {
+            foreach (var location in org.Locations!)
+            {
+                location.OrganizationId = org.Id;
+            }
+        }
+
+        return result;
     }
     
     /// <summary>

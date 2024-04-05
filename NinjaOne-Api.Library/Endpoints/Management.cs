@@ -197,8 +197,52 @@ public partial class Client
         return await PostResource(request, device.UpdateDeviceDto(), Method.Patch);
     }
     
-    // https://app.ninjarmm.com/apidocs-beta/core-resources/operations/updateOrganization
-    // TODO: Implement UpdateOrganization
+    /// <summary>
+    /// Update modifiable properties for an Organization.<br/>
+    /// <a href="https://app.ninjarmm.com/apidocs-beta/core-resources/operations/updateOrganization">updateOrganization</a>
+    /// on Ninja One Public API Reference
+    /// </summary>
+    /// <param name="organizationId">Id of the Organization to update</param>
+    /// <param name="updateParameters">A <c>Hashtable</c> containing the fields to be updated</param>
+    /// <example>
+    /// <code>
+    /// response = await client.UpdateOrganization(organizationId: 1, new Hashtable
+    /// {
+    ///    { "name", "Organization X"}
+    /// });
+    /// </code>
+    /// </example>
+    /// <returns>A named tuple comprised of a boolean indicating success and a nullable <see cref="NinjaApiError"/></returns>
+    public async Task<(bool Success, NinjaApiError? Error)> UpdateOrganization(
+        int organizationId,
+        Hashtable updateParameters
+    )
+    {
+        var request = new RestRequest(string.Format(Resource.Organization, organizationId));
+
+        return await PostResource(request, updateParameters, Method.Patch);
+    }
+
+    /// <summary>
+    /// Update modifiable properties for an Organization.<br/>
+    /// <a href="https://app.ninjarmm.com/apidocs-beta/core-resources/operations/updateOrganization">updateOrganization</a>
+    /// on Ninja One Public API Reference
+    /// </summary>
+    /// <param name="organization">The <c>OrganizationBase</c> instance to derive the organization Id and updated fields from</param>
+    /// <example>
+    /// <code>
+    /// var result = await client.GetOrganization(1);
+    /// result.Organization!.Name = "Organization X";
+    /// var response = await client.UpdateOrganization(result.Organization);
+    /// </code>
+    /// </example>
+    /// <returns>A named tuple comprised of a boolean indicating success and a nullable <see cref="NinjaApiError"/></returns>
+    public async Task<(bool Success, NinjaApiError? Error)> UpdateOrganization(OrganizationBase organization)
+    {
+        var request = new RestRequest(string.Format(Resource.Organization, organization.Id));
+
+        return await PostResource(request, organization.UpdateOrganizationDto(), Method.Patch);
+    }
     
     // https://app.ninjarmm.com/apidocs-beta/core-resources/operations/createLocationForOrganization
     // TODO: Implement CreateOrganizationLocation

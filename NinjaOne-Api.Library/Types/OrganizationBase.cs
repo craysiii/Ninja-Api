@@ -15,5 +15,18 @@ public class OrganizationBase
     [JsonPropertyName(Property.Fields)]
     public JsonElement? Fields { get; set; }
     [JsonPropertyName(Property.Id)]
-    public int? Id { get; set; }
+    public int? Id { get; init; }
+
+    public OrganizationBase UpdateOrganizationDto()
+    {
+        return new OrganizationBase
+        {
+            Name = Name,
+            Description = Description,
+            UserData = UserData,
+            NodeApprovalMode = NodeApprovalMode,
+            Tags = Tags,
+            Fields = Fields
+        };
+    }
 }

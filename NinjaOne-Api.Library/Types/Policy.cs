@@ -16,8 +16,4 @@ public class Policy
     public DateTime? Updated { get; set; }
     [JsonPropertyName(Property.NodeClassDefault)]
     public bool? NodeClassDefault { get; set; }
-    [JsonPropertyName(Property.Tags)]
-    public List<string>? Tags { get; set; }
-    [JsonPropertyName(Property.Fields)]
-    public JsonElement? Fields { get; set; }
 }

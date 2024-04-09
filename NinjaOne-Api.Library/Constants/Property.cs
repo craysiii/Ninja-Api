@@ -196,7 +196,6 @@ internal static class Property
     public const string SubnetMask                      = "subnetMask";
     public const string System                          = "system";
     public const string SystemName                      = "systemName";
-    public const string Tags                            = "tags";
     public const string Targets                         = "targets";
     public const string Teamviewer                      = "teamviewer";
     public const string TechnicianPermission            = "technicianPermission";
@@ -213,7 +212,6 @@ internal static class Property
     public const string UpdateTime                      = "updateTime";
     public const string Url                             = "url";
     public const string User                            = "user";
-    public const string UserData                        = "userData";
     public const string UserId                          = "userId";
     public const string UserName                        = "userName";
     public const string UserType                        = "userType";

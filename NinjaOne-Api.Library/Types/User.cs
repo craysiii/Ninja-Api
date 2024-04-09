@@ -30,8 +30,4 @@ public class User : UserBase
     public int? OrganizationId { get; set; }
     [JsonPropertyName(Property.DeviceIds)]
     public List<int>? DeviceIds { get; set; }
-    [JsonPropertyName(Property.Tags)]
-    public List<string>? Tags { get; set; }
-    [JsonPropertyName(Property.Fields)]
-    public JsonElement? Fields { get; set; }
 }

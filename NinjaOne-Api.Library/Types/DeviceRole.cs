@@ -16,8 +16,4 @@ public class DeviceRole
     public ChassisType? ChassisType { get; set; }
     [JsonPropertyName(Property.Created)]
     public DateTime? Created { get; set; }
-    [JsonPropertyName(Property.Tags)]
-    public List<string>? Tags { get; set; }
-    [JsonPropertyName(Property.Fields)]
-    public JsonElement? Fields { get; set; }
 }

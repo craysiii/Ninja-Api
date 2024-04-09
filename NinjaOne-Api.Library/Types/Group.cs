@@ -18,6 +18,4 @@ public class Group
     public int? DeviceCount { get; set; }
     [JsonPropertyName(Property.LastEvaluated)]
     public DateTime? LastEvaluated { get; set; }
-    [JsonPropertyName(Property.Tags)]
-    public List<string>? Tags { get; set; }
 }

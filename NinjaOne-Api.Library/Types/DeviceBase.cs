@@ -36,12 +36,6 @@ public class DeviceBase
     public DateTime? LastContact { get; set; }
     [JsonPropertyName(Property.LastUpdate)]
     public DateTime? LastUpdate { get; set; }
-    [JsonPropertyName(Property.UserData)]
-    public JsonElement? UserData { get; set; }
-    [JsonPropertyName(Property.Tags)]
-    public List<string>? Tags { get; set; }
-    [JsonPropertyName(Property.Fields)]
-    public JsonElement? Fields { get; set; }
     [JsonPropertyName(Property.Maintenance)]
     public DeviceMaintenance? Maintenance { get; set; }
     [JsonPropertyName(Property.References)]
@@ -53,8 +47,7 @@ public class DeviceBase
         {
             DisplayName = DisplayName,
             NodeRoleId = NodeRoleId,
-            PolicyId = PolicyId,
-            UserData = UserData
+            PolicyId = PolicyId
         };
     }
 }

@@ -3,5 +3,11 @@
 public class DeviceNote
 {
     [JsonPropertyName(Property.Text)]
-    public string? Text { get; set; }
+    public string? Text { get; internal set; }
+
+    [JsonConstructor]
+    internal DeviceNote(string? text)
+    {
+        Text = text;
+    }
 }

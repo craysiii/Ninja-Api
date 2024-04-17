@@ -3,23 +3,49 @@
 public class BackupUsageBase
 {
     [JsonPropertyName(Property.RevisionsCurrentSize)]
-    public long? RevisionsCurrentSize { get; set; }
+    public long? RevisionsCurrentSize { get; internal set; }
     [JsonPropertyName(Property.RevisionsPreviousSize)]
-    public long? RevisionsPreviousSize { get; set; }
+    public long? RevisionsPreviousSize { get; internal set; }
     [JsonPropertyName(Property.RevisionsDeletedSize)]
-    public long? RevisionsDeletedSize { get; set; }
+    public long? RevisionsDeletedSize { get; internal set; }
     [JsonPropertyName(Property.LocalFileFolderSize)]
-    public long? LocalFileFolderSize { get; set; }
+    public long? LocalFileFolderSize { get; internal set; }
     [JsonPropertyName(Property.LocalImageSize)]
-    public long? LocalImageSize { get; set; }
+    public long? LocalImageSize { get; internal set; }
     [JsonPropertyName(Property.CloudFileFolderSize)]
-    public long? CloudFileFolderSize { get; set; }
+    public long? CloudFileFolderSize { get; internal set; }
     [JsonPropertyName(Property.CloudImageSize)]
-    public long? CloudImageSize { get; set; }
+    public long? CloudImageSize { get; internal set; }
     [JsonPropertyName(Property.RevisionsTotalSize)]
-    public long? RevisionsTotalSize { get; set; }
+    public long? RevisionsTotalSize { get; internal set; }
     [JsonPropertyName(Property.CloudTotalSize)]
-    public long? CloudTotalSize { get; set; }
+    public long? CloudTotalSize { get; internal set; }
     [JsonPropertyName(Property.LocalTotalSize)]
-    public long? LocalTotalSize { get; set; }
+    public long? LocalTotalSize { get; internal set; }
+
+    [JsonConstructor]
+    internal BackupUsageBase(
+        long? revisionsCurrentSize,
+        long? revisionsPreviousSize,
+        long? revisionsDeletedSize,
+        long? localFileFolderSize,
+        long? localImageSize,
+        long? cloudFileFolderSize,
+        long? cloudImageSize,
+        long? revisionsTotalSize,
+        long? cloudTotalSize,
+        long? localTotalSize
+    )
+    {
+        RevisionsCurrentSize = revisionsCurrentSize;
+        RevisionsPreviousSize = revisionsPreviousSize;
+        RevisionsDeletedSize = revisionsDeletedSize;
+        LocalFileFolderSize = localFileFolderSize;
+        LocalImageSize = localImageSize;
+        CloudFileFolderSize = cloudFileFolderSize;
+        CloudImageSize = cloudImageSize;
+        RevisionsTotalSize = revisionsTotalSize;
+        CloudTotalSize = cloudTotalSize;
+        LocalTotalSize = localTotalSize;
+    }
 }

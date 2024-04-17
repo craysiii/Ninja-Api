@@ -3,15 +3,33 @@
 public class Processor
 {
     [JsonPropertyName(Property.Architecture)]
-    public string? Architecture { get; set; }
+    public string? Architecture { get; internal set; }
     [JsonPropertyName(Property.MaxClockSpeed)]
-    public long? MaxClockSpeed { get; set; }
+    public long? MaxClockSpeed { get; internal set; }
     [JsonPropertyName(Property.ClockSpeed)]
-    public long? ClockSpeed { get; set; }
+    public long? ClockSpeed { get; internal set; }
     [JsonPropertyName(Property.Name)]
-    public string? Name { get; set; }
+    public string? Name { get; internal set; }
     [JsonPropertyName(Property.CoreCount)]
-    public int? CoreCount { get; set; }
+    public int? CoreCount { get; internal set; }
     [JsonPropertyName(Property.LogicalCoreCount)]
-    public int? LogicalCoreCount { get; set; }
+    public int? LogicalCoreCount { get; internal set; }
+
+    [JsonConstructor]
+    internal Processor(
+        string? architecture,
+        long? maxClockSpeed,
+        long? clockSpeed,
+        string? name,
+        int? coreCount,
+        int? logicalCoreCount
+    )
+    {
+        Architecture = architecture;
+        MaxClockSpeed = maxClockSpeed;
+        ClockSpeed = clockSpeed;
+        Name = name;
+        CoreCount = coreCount;
+        LogicalCoreCount = logicalCoreCount;
+    }
 }

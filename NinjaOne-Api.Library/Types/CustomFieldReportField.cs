@@ -3,11 +3,25 @@
 public class CustomFieldReportField
 {
     [JsonPropertyName(Property.Name)]
-    public string? Name { get; set; }
+    public string? Name { get; internal set; }
     [JsonPropertyName(Property.Value)]
-    public JsonObject? Value { get; set; }
+    public JsonElement? Value { get; internal set; }
     [JsonPropertyName(Property.UpdatedBy)]
-    public CustomFieldUpdateSource? UpdatedBy { get; set; }
+    public CustomFieldUpdateSource? UpdatedBy { get; internal set; }
     [JsonPropertyName(Property.UpdateTime)]
-    public DateTime? UpdateTime { get; set; }
+    public DateTime? UpdateTime { get; internal set; }
+
+    [JsonConstructor]
+    internal CustomFieldReportField(
+        string? name,
+        JsonElement? value,
+        CustomFieldUpdateSource? updatedBy,
+        DateTime? updateTime
+    )
+    {
+        Name = name;
+        Value = value;
+        UpdatedBy = updatedBy;
+        UpdateTime = updateTime;
+    }
 }

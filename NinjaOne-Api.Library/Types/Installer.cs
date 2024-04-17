@@ -3,5 +3,11 @@
 public class Installer
 {
     [JsonPropertyName(Property.Url)]
-    public string? Url { get; set; }
+    public string? Url { get; internal set; }
+
+    [JsonConstructor]
+    internal Installer(string? url)
+    {
+        Url = url;
+    }
 }

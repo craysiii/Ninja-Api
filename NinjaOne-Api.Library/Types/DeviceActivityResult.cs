@@ -3,9 +3,17 @@
 public class DeviceActivityResult
 {
     [JsonPropertyName(Property.LastActivityId)]
-    public long? LastActivityId { get; set; }
+    public long? LastActivityId { get; internal set; }
     [JsonPropertyName(Property.LastNodeActivityId)]
-    public long? LastNodeActivityId { get; set; }
+    public long? LastNodeActivityId { get; internal set; }
     [JsonPropertyName(Property.Activities)]
-    public List<Activity>? Activities { get; set; }
+    public List<Activity>? Activities { get; internal set; }
+
+    [JsonConstructor]
+    internal DeviceActivityResult(long? lastActivityId, long? lastNodeActivityId, List<Activity>? activities)
+    {
+        LastActivityId = lastActivityId;
+        LastNodeActivityId = lastNodeActivityId;
+        Activities = activities;
+    }
 }

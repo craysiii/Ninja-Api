@@ -32,6 +32,7 @@ public static class Resource
     public const string DeviceWindowsServices               = $"{Device}/windows-services";
     public const string EnabledNotificationChannels         = $"{NotificationChannels}/enabled";
     public const string GenerateInstaller                   = "organization/generate-installer";
+    public const string GetInstaller                        = $"{Organization}/location/{{1}}/installer/{{2}}";
     public const string Groups                              = "groups";
     public const string GroupMembers                        = "group/{0}/device-ids";
     public const string Jobs                                = "jobs";

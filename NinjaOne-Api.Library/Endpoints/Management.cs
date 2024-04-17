@@ -247,8 +247,67 @@ public partial class Client
     // https://app.ninjarmm.com/apidocs-beta/core-resources/operations/createLocationForOrganization
     // TODO: Implement CreateOrganizationLocation
     
-    // https://app.ninjarmm.com/apidocs-beta/core-resources/operations/getInstallerForLocation
-    // TODO: Implement GetOrganizationLocationInstaller
+    /// <summary>
+    /// Get a NinjaOne installer for a location<br/>
+    /// <a href="https://app.ninjarmm.com/apidocs-beta/core-resources/operations/getInstallerForLocation">getInstallerForLocation</a>
+    /// on Ninja One Public API Reference
+    /// </summary>
+    /// <param name="organizationId">Id of the organization</param>
+    /// <param name="locationId">Id of the location</param>
+    /// <param name="installerType">Type of installer to generate</param>
+    /// <example>
+    /// <code>
+    /// var result = await client.GetOrganizationLocationInstaller(
+    ///     organizationId: 1,
+    ///     locationId: 5,
+    ///     installerType: InstallerType.WINDOWS_MSI
+    /// );
+    /// </code>
+    /// </example>
+    /// <returns>A named tuple comprised of a nullable <see cref="Installer"/> and a nullable <see cref="NinjaApiError"/></returns>
+    public async Task<(Installer? Installer, NinjaApiError? Error)> GetOrganizationLocationInstaller(
+        int organizationId,
+        int locationId,
+        InstallerType installerType
+    )
+    {
+        var request = new RestRequest(
+            string.Format(Resource.GetInstaller, organizationId, locationId, installerType.ToString())
+            );
+
+        return await GetResource<Installer>(request);
+    }
+    
+    /// <summary>
+    /// Get a NinjaOne installer for a location<br/>
+    /// <a href="https://app.ninjarmm.com/apidocs-beta/core-resources/operations/getInstallerForLocation">getInstallerForLocation</a>
+    /// on Ninja One Public API Reference
+    /// </summary>
+    /// <param name="location">Location to derive the organizationId and locationId from</param>
+    /// <param name="installerType">Type of installer to generate</param>
+    /// <example>
+    /// <code>
+    /// var locationResult = await client.GetOrganizationLocations(1);
+    /// var firstLocation = locationResult.Locations.First();
+    /// 
+    /// var result = await client.GetOrganizationLocationInstaller(
+    ///     location: firstLocation,
+    ///     installerType: InstallerType.WINDOWS_MSI
+    /// );
+    /// </code>
+    /// </example>
+    /// <returns>A named tuple comprised of a nullable <see cref="Installer"/> and a nullable <see cref="NinjaApiError"/></returns>
+    public async Task<(Installer? Installer, NinjaApiError? Error)> GetOrganizationLocationInstaller(
+        Location location,
+        InstallerType installerType
+    )
+    {
+        var request = new RestRequest(
+            string.Format(Resource.GetInstaller, location.OrganizationId, location.Id, installerType.ToString())
+        );
+
+        return await GetResource<Installer>(request);
+    }
     
     /// <summary>
     /// Generate custom NinjaOne installer.<br/>

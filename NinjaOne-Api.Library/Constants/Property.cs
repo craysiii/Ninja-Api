@@ -64,6 +64,9 @@ internal static class Property
     public const string EndUserCustomization            = "endUserCustomization";
     public const string EndUserPermission               = "endUserPermission";
     public const string EntityType                      = "entityType";
+    public const string Error                           = "error";
+    public const string ErrorCode                       = "error_code";
+    public const string ErrorDescription                = "error_description";
     public const string ErrorMessage                    = "errorMessage";
     public const string Expires                         = "expires";
     public const string ExpiresIn                       = "expires_in";
